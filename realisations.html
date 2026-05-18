@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Réalisations récentes MDS — Métallier Design Service à Saint-Étienne. Garde-corps, escaliers, verrières et portails sur mesure en Loire et Auvergne-Rhône-Alpes.">
+  <meta name="keywords" content="réalisations métallier Saint-Étienne, chantiers MDS, garde-corps réalisés, escaliers sur mesure, verrières atelier, portails métallerie">
+  <meta property="og:title" content="Nos réalisations récentes — MDS Saint-Étienne">
+  <meta property="og:description" content="Garde-corps, escaliers, verrières et portails réalisés par l'atelier MDS en Loire et Auvergne-Rhône-Alpes.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://metallier-mds.fr/realisations.html">
+  <meta property="og:image" content="https://metallier-mds.fr/og-cover.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Réalisations récentes — MDS Métallier Saint-Étienne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://metallier-mds.fr/realisations.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a1a">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://metallier-mds.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Réalisations", "item": "https://metallier-mds.fr/realisations.html" }
+    ]
+  }
+  </script>
+
+  <style>
+    .skip-link {
+      position: absolute; top: -100px; left: 1rem;
+      background: var(--accent); color: #fff;
+      padding: 0.7rem 1.2rem; border-radius: 4px;
+      z-index: 10000; font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; transition: top var(--t) var(--ease);
+    }
+    .skip-link:focus { top: 1rem; outline: 2px solid #fff; outline-offset: 2px; }
+
+    .footer-inner { grid-template-columns: 1.4fr 1fr 1fr 1fr !important; }
+    .footer-brand .footer-tagline { max-width: 280px; }
+    @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr !important; } }
+    @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr !important; } }
+
+    .logo-mds {
+      display: inline-flex; flex-direction: column; gap: 2px;
+      font-family: var(--font-head); font-weight: 800; font-size: 1.2rem;
+      letter-spacing: 0.04em; color: var(--text-primary); text-decoration: none; line-height: 1;
+    }
+    .logo-mds-main { font-size: 1.35rem; }
+    .logo-mds-main span { color: var(--accent); }
+    .logo-mds-sub {
+      font-size: 0.62rem; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--text-muted);
+    }
+
+    .mds-breadcrumb {
+      background: #1a1a1a; border-bottom: 1px solid var(--border);
+      padding: calc(var(--nav-h) + 1.2rem) 0 1.2rem;
+    }
+    .mds-breadcrumb-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+    }
+    .mds-breadcrumb ol {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      list-style: none; padding: 0; margin: 0;
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+    .mds-breadcrumb a { color: var(--text-secondary); text-decoration: none; transition: color var(--t) var(--ease); }
+    .mds-breadcrumb a:hover { color: var(--accent); }
+    .mds-breadcrumb-sep { color: var(--text-muted); opacity: 0.5; }
+    .mds-breadcrumb [aria-current="page"] { color: var(--text-primary); font-weight: 600; }
+
+    /* HERO */
+    .reals-hero {
+      background: #0f0f0f; border-bottom: 1px solid var(--border);
+      padding: 4rem 0 3rem;
+    }
+    .reals-hero-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+    }
+    .reals-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800;
+      letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem;
+    }
+    .reals-hero h1 .accent { color: var(--accent); }
+    .reals-hero-sub {
+      color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6;
+      max-width: 600px; margin-bottom: 2rem;
+    }
+
+    /* FILTRES */
+    .reals-filters {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem;
+    }
+    .reals-filter-btn {
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 8px 18px; border: 1px solid var(--border);
+      background: transparent; color: var(--text-secondary); border-radius: 4px;
+      cursor: pointer; transition: all var(--t) var(--ease);
+    }
+    .reals-filter-btn:hover, .reals-filter-btn.active {
+      background: var(--accent); border-color: var(--accent); color: #fff;
+    }
+
+    /* GRILLE */
+    .reals-section { padding: var(--section-pad) 0; }
+    .reals-section-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 3rem); }
+    .reals-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
+    }
+    .reals-item {
+      aspect-ratio: 4/3; border-radius: 4px; overflow: hidden;
+      background: #1a1a1a; border: 1px solid var(--border);
+      position: relative; cursor: pointer;
+    }
+    .reals-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s var(--ease);
+    }
+    .reals-item:hover img { transform: scale(1.05); }
+    .reals-item-cap {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 1rem 1.2rem 1rem;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.88));
+      color: #fff;
+    }
+    .reals-item-cat {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 4px;
+    }
+    .reals-item-title { font-size: 0.88rem; font-weight: 600; line-height: 1.35; }
+
+    /* LIGHTBOX */
+    .reals-lightbox {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.94); align-items: center; justify-content: center;
+      padding: 1rem;
+    }
+    .reals-lightbox.open { display: flex; }
+    .reals-lightbox-img {
+      max-width: 100%; max-height: 90vh; border-radius: 4px;
+      object-fit: contain; box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+    .reals-lightbox-close {
+      position: fixed; top: 1.5rem; right: 1.5rem;
+      background: rgba(255,255,255,0.12); border: none; color: #fff;
+      width: 44px; height: 44px; border-radius: 50%; font-size: 1.3rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background var(--t) var(--ease);
+    }
+    .reals-lightbox-close:hover { background: var(--accent); }
+    .reals-lightbox-nav {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.10); border: none; color: #fff;
+      width: 48px; height: 48px; border-radius: 50%; font-size: 1.4rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background var(--t) var(--ease);
+    }
+    .reals-lightbox-nav:hover { background: var(--accent); }
+    .reals-lightbox-prev { left: 1.2rem; }
+    .reals-lightbox-next { right: 1.2rem; }
+    .reals-lightbox-caption {
+      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,0.7); color: #fff; padding: 0.5rem 1.2rem;
+      border-radius: 20px; font-size: 0.82rem; white-space: nowrap;
+    }
+
+    /* CTA */
+    .reals-cta {
+      background: #1a1a1a; text-align: center; padding: var(--section-pad) 0;
+      border-top: 1px solid var(--border);
+    }
+    .reals-cta h2 { margin-bottom: 1rem; }
+    .reals-cta p { color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.05rem; }
+
+    .mds-footer-bottom-link {
+      display: inline-block; margin-top: 0.8rem; font-size: 0.78rem;
+      color: var(--text-muted); text-decoration: none; opacity: 0.8;
+      transition: opacity var(--t) var(--ease);
+    }
+    .mds-footer-bottom-link:hover { opacity: 1; color: var(--accent); }
+    .mds-footer-bottom-link strong { color: var(--text-secondary); font-weight: 600; }
+
+    .animate-fadeup {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+      transition-delay: var(--delay, 0s);
+    }
+    .animate-fadeup.in-view { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) { .reals-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .reals-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) {
+      .reals-lightbox-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <nav id="navbar" aria-label="Navigation principale">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="logo logo-mds" aria-label="MDS — Métallier Design Service — Accueil">
+          <span class="logo-mds-main">MDS<span>.</span></span>
+          <span class="logo-mds-sub">Métallier Design Service</span>
+        </a>
+        <div class="france-badge" aria-label="Fabriqué en France">
+          <div class="france-flag" aria-hidden="true">
+            <span class="f-blue"></span><span class="f-white"></span><span class="f-red"></span>
+          </div>
+          Fabriqué en France
+        </div>
+      </div>
+      <button class="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-links" role="list">
+        <li class="nav-item"><a href="garde-corps.html">Garde-corps</a></li>
+        <li class="nav-item"><a href="portails.html">Portails</a></li>
+        <li class="nav-item"><a href="escaliers.html">Escaliers</a></li>
+        <li class="nav-item"><a href="verrieres.html">Verrières</a></li>
+        <li class="nav-item"><a href="realisations.html" class="active" aria-current="page">Réalisations</a></li>
+        <li class="nav-item"><a href="atelier.html">L'atelier</a></li>
+        <li class="nav-item"><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="contact.html" class="nav-cta btn-outline">Devis sur plan</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+  <nav class="mds-breadcrumb" aria-label="Fil d'Ariane">
+    <div class="mds-breadcrumb-inner">
+      <ol>
+        <li><a href="index.html">Accueil</a></li>
+        <li class="mds-breadcrumb-sep" aria-hidden="true">›</li>
+        <li aria-current="page">Réalisations</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="reals-hero">
+    <div class="reals-hero-inner">
+      <div class="animate-fadeup">
+        <span class="section-label">RÉALISATIONS</span>
+        <h1>Quelques chantiers <span class="accent">récents</span></h1>
+        <p class="reals-hero-sub">
+          Garde-corps, escaliers, verrières, portails — chaque ouvrage est unique, conçu et fabriqué dans notre atelier de Saint-Étienne.
+        </p>
+      </div>
+      <div class="reals-filters animate-fadeup" style="--delay: 0.08s" role="group" aria-label="Filtrer par catégorie">
+        <button class="reals-filter-btn active" data-filter="all">Tout</button>
+        <button class="reals-filter-btn" data-filter="garde-corps">Garde-corps</button>
+        <button class="reals-filter-btn" data-filter="escaliers">Escaliers</button>
+        <button class="reals-filter-btn" data-filter="verrieres">Verrières</button>
+        <button class="reals-filter-btn" data-filter="portails">Portails</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section class="reals-section" aria-labelledby="gallery-title">
+    <div class="reals-section-inner">
+      <h2 id="gallery-title" class="visually-hidden">Galerie des réalisations</h2>
+
+      <div class="reals-grid" id="reals-grid">
+
+        <div class="reals-item animate-fadeup" data-cat="garde-corps" data-src="assets/photos-chantiers/garde-corps-verre-terrasse-jardin.webp" data-label="Garde-corps verre — Terrasse jardin">
+          <img src="assets/photos-chantiers/garde-corps-verre-terrasse-jardin.webp" alt="Garde-corps en verre sécurité sur terrasse extérieure avec vue jardin" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Garde-corps</div><div class="reals-item-title">Garde-corps verre — Terrasse jardin</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.04s" data-cat="garde-corps" data-src="assets/photos-chantiers/garde-corps-laser-motifs-geometriques.webp" data-label="Tôle découpée laser — Motifs géométriques">
+          <img src="assets/photos-chantiers/garde-corps-laser-motifs-geometriques.webp" alt="Garde-corps tôle découpée laser motifs géométriques arabesques" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Garde-corps</div><div class="reals-item-title">Tôle découpée laser — Motifs géométriques</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.08s" data-cat="garde-corps" data-src="assets/photos-chantiers/garde-corps-fer-forge-grange.webp" data-label="Fer forgé — Rénovation grange">
+          <img src="assets/photos-chantiers/garde-corps-fer-forge-grange.webp" alt="Garde-corps fer forgé classique sur rénovation grange" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Garde-corps</div><div class="reals-item-title">Fer forgé — Rénovation grange</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.04s" data-cat="garde-corps" data-src="assets/photos-chantiers/garde-corps-barreaux-bleu-terrasse.webp" data-label="Barreaudage vertical bleu — Terrasse extérieure">
+          <img src="assets/photos-chantiers/garde-corps-barreaux-bleu-terrasse.webp" alt="Garde-corps barreaux verticaux bleu pâle sur terrasse en pierre" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Garde-corps</div><div class="reals-item-title">Barreaudage vertical — Terrasse extérieure</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.08s" data-cat="garde-corps" data-src="assets/photos-chantiers/garde-corps-fer-forge-comble.webp" data-label="Fer forgé rinceaux — Palier comble">
+          <img src="assets/photos-chantiers/garde-corps-fer-forge-comble.webp" alt="Garde-corps fer forgé noir avec rinceaux sur palier de comble" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Garde-corps</div><div class="reals-item-title">Fer forgé rinceaux — Palier comble</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" data-cat="escaliers" data-src="assets/photos-chantiers/escalier-suspendu-bois-verre.webp" data-label="Escalier suspendu — Marches bois + verre">
+          <img src="assets/photos-chantiers/escalier-suspendu-bois-verre.webp" alt="Escalier suspendu marches bois massif et garde-corps verre transparent" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Escaliers</div><div class="reals-item-title">Escalier suspendu — Marches bois + verre</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.04s" data-cat="escaliers" data-src="assets/photos-chantiers/escalier-beton-garde-corps-verre.webp" data-label="Escalier béton ciré — Garde-corps verre + main courante bois">
+          <img src="assets/photos-chantiers/escalier-beton-garde-corps-verre.webp" alt="Garde-corps verre avec main courante bois sur escalier béton ciré" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Escaliers</div><div class="reals-item-title">Escalier béton ciré — Verre + main courante bois</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.08s" data-cat="escaliers" data-src="assets/photos-chantiers/escalier-design-ondule-double-limon.webp" data-label="Double limon design ondulé — Acier brut">
+          <img src="assets/photos-chantiers/escalier-design-ondule-double-limon.webp" alt="Escalier design double limon ondulé acier brut intérieur contemporain" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Escaliers</div><div class="reals-item-title">Double limon design ondulé — Acier brut</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" data-cat="escaliers" data-src="assets/photos-chantiers/escalier-moderne-noir-limon-central.webp" data-label="Limon central acier noir — Design contemporain">
+          <img src="assets/photos-chantiers/escalier-moderne-noir-limon-central.webp" alt="Escalier limon central acier laqué noir contemporain marches bois" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Escaliers</div><div class="reals-item-title">Limon central acier noir — Design contemporain</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.04s" data-cat="escaliers" data-src="assets/photos-chantiers/escalier-helicoidal-blanc.webp" data-label="Escalier hélicoïdal — Blanc laqué">
+          <img src="assets/photos-chantiers/escalier-helicoidal-blanc.webp" alt="Escalier hélicoïdal colimaçon acier laqué blanc" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Escaliers</div><div class="reals-item-title">Escalier hélicoïdal — Blanc laqué</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.08s" data-cat="verrieres" data-src="assets/photos-chantiers/verriere-atelier-angle-cuisine.webp" data-label="Verrière d'angle — Cuisine ouverte avec porte">
+          <img src="assets/photos-chantiers/verriere-atelier-angle-cuisine.webp" alt="Verrière d'angle séparation cuisine ouverte avec porte intégrée acier noir" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Verrières</div><div class="reals-item-title">Verrière d'angle — Cuisine ouverte avec porte</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" data-cat="verrieres" data-src="assets/photos-chantiers/verriere-noir-salle-de-bain-atelier.webp" data-label="Verrière atelier — Salle de bain">
+          <img src="assets/photos-chantiers/verriere-noir-salle-de-bain-atelier.webp" alt="Verrière style atelier acier noir salle de bain intérieur" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Verrières</div><div class="reals-item-title">Verrière atelier — Salle de bain</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.04s" data-cat="verrieres" data-src="assets/photos-chantiers/verriere-noir-salle-de-bain-bois.webp" data-label="Verrière acier + bois — Salle de bain">
+          <img src="assets/photos-chantiers/verriere-noir-salle-de-bain-bois.webp" alt="Verrière acier noir et bois clair salle de bain contemporain" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Verrières</div><div class="reals-item-title">Verrière acier + bois — Salle de bain</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.08s" data-cat="verrieres" data-src="assets/photos-chantiers/verriere-rampante-tropical.webp" data-label="Verrière rampante — Sous-pente tropicale">
+          <img src="assets/photos-chantiers/verriere-rampante-tropical.webp" alt="Verrière rampante sous pente style tropical végétation" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Verrières</div><div class="reals-item-title">Verrière rampante — Sous-pente</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" data-cat="portails" data-src="assets/photos-chantiers/portail-fer-forge-double-battant.webp" data-label="Portail fer forgé — Double battant">
+          <img src="assets/photos-chantiers/portail-fer-forge-double-battant.webp" alt="Portail fer forgé classique double battant avec rinceaux" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Portails</div><div class="reals-item-title">Portail fer forgé — Double battant</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.04s" data-cat="portails" data-src="assets/photos-chantiers/portails-noir-pierre-piscine.webp" data-label="Portail noir — Accès piscine pierre">
+          <img src="assets/photos-chantiers/portails-noir-pierre-piscine.webp" alt="Portail métal noir accès piscine muret pierre" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Portails</div><div class="reals-item-title">Portail noir — Accès piscine</div></div>
+        </div>
+
+        <div class="reals-item animate-fadeup" style="--delay: 0.08s" data-cat="portails" data-src="assets/photos-chantiers/porte-garage-sectionnelle-beige.webp" data-label="Porte de garage sectionnelle — Thermolaquée beige">
+          <img src="assets/photos-chantiers/porte-garage-sectionnelle-beige.webp" alt="Porte de garage sectionnelle thermolaquée beige satin" loading="lazy" decoding="async" width="400" height="300">
+          <div class="reals-item-cap"><div class="reals-item-cat">Portails</div><div class="reals-item-title">Porte de garage sectionnelle — Beige satin</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="reals-cta" aria-labelledby="cta-title">
+    <div style="max-width:var(--max-w);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem)">
+      <h2 id="cta-title" class="animate-fadeup">Votre projet mérite la même attention</h2>
+      <p class="animate-fadeup" style="--delay: 0.05s">RDV technique gratuit sous 1 semaine — devis sous 48 h — garantie décennale.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
+        <a href="contact.html" class="btn-primary animate-fadeup" style="--delay: 0.1s">Demander un devis</a>
+        <a href="devis.html" class="btn-outline animate-fadeup" style="--delay: 0.15s">Devis sur plan (DWG/PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="reals-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+    <button class="reals-lightbox-close" id="lb-close" aria-label="Fermer">×</button>
+    <button class="reals-lightbox-nav reals-lightbox-prev" id="lb-prev" aria-label="Photo précédente">‹</button>
+    <img class="reals-lightbox-img" id="lb-img" src="" alt="">
+    <button class="reals-lightbox-nav reals-lightbox-next" id="lb-next" aria-label="Photo suivante">›</button>
+    <div class="reals-lightbox-caption" id="lb-caption"></div>
+  </div>
+
+  <footer id="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo logo-mds" aria-label="MDS — Retour à l'accueil">
+          <span class="logo-mds-main">MDS<span>.</span></span>
+          <span class="logo-mds-sub">Métallier Design Service</span>
+        </a>
+        <p class="footer-tagline">Atelier français · Garde-corps · Portails · Escaliers · Verrières</p>
+      </div>
+      <nav class="footer-nav" aria-label="Activités">
+        <h4 style="font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;">Activités</h4>
+        <ul role="list">
+          <li><a href="garde-corps.html">Garde-corps</a></li>
+          <li><a href="portails.html">Portails</a></li>
+          <li><a href="escaliers.html">Escaliers</a></li>
+          <li><a href="verrieres.html">Verrières</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav" aria-label="L'atelier">
+        <h4 style="font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;">L'atelier</h4>
+        <ul role="list">
+          <li><a href="atelier.html">Qui sommes-nous</a></li>
+          <li><a href="atelier.html#process">Notre process</a></li>
+          <li><a href="atelier.html#materiaux">Matériaux</a></li>
+          <li><a href="contact.html">Demander un devis</a></li>
+        </ul>
+      </nav>
+      <address class="footer-contact">
+        <h4 style="font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;font-style:normal;">Contact</h4>
+        <p><a href="tel:+33643218201">06 43 21 82 01</a></p>
+        <p><a href="mailto:metallier.mds@gmail.com">metallier.mds@gmail.com</a></p>
+        <p>8 Rue Édouard Martel<br>42000 Saint-Étienne</p>
+      </address>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="footer-year">2026</span> SARL Metallier Design Service — Tous droits réservés</p>
+      <div class="footer-legal-links">
+        <a href="cgv.html">CGV</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+      </div>
+      <p class="footer-legal-line">SARL METALLIER DESIGN SERVICE - M.D.S. · Capital 5 000 € · RCS Saint-Étienne 844 258 178 · TVA FR77844258178</p>
+      <a href="https://metal-pliage.fr" target="_blank" rel="noopener" class="mds-footer-bottom-link">
+        Voir aussi notre site e-commerce <strong>metal-pliage.fr</strong> (couvertines & pliage acier)
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var y = document.getElementById('footer-year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+
+    (function(){
+      var nav = document.getElementById('navbar');
+      var burger = document.querySelector('.nav-hamburger');
+      var links = document.getElementById('nav-links');
+      if (burger && nav) {
+        burger.addEventListener('click', function(){
+          var open = nav.classList.toggle('nav-open');
+          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+      if (links) {
+        links.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click', function(){
+            nav.classList.remove('nav-open');
+            if (burger) burger.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+      var onScroll = function(){
+        if (window.scrollY > 30) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // Filtres
+    (function(){
+      var btns = document.querySelectorAll('.reals-filter-btn');
+      var items = document.querySelectorAll('.reals-item');
+      btns.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          btns.forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.getAttribute('data-filter');
+          items.forEach(function(item){
+            var cat = item.getAttribute('data-cat');
+            item.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
+          });
+        });
+      });
+    })();
+
+    // Lightbox
+    (function(){
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lb-img');
+      var lbCap = document.getElementById('lb-caption');
+      var lbClose = document.getElementById('lb-close');
+      var lbPrev = document.getElementById('lb-prev');
+      var lbNext = document.getElementById('lb-next');
+      var items = Array.from(document.querySelectorAll('.reals-item'));
+      var current = 0;
+
+      function openAt(idx){
+        var visibles = items.filter(function(it){ return it.style.display !== 'none'; });
+        if (!visibles.length) return;
+        idx = (idx + visibles.length) % visibles.length;
+        current = idx;
+        lbImg.src = visibles[idx].getAttribute('data-src');
+        lbImg.alt = visibles[idx].querySelector('img').alt;
+        lbCap.textContent = visibles[idx].getAttribute('data-label');
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      items.forEach(function(item, i){
+        item.addEventListener('click', function(){
+          var visibles = items.filter(function(it){ return it.style.display !== 'none'; });
+          var idx = visibles.indexOf(item);
+          openAt(idx);
+        });
+      });
+
+      function close(){
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+      }
+
+      lbClose.addEventListener('click', close);
+      lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
+      lbPrev.addEventListener('click', function(){ openAt(current - 1); });
+      lbNext.addEventListener('click', function(){ openAt(current + 1); });
+
+      document.addEventListener('keydown', function(e){
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') openAt(current - 1);
+        if (e.key === 'ArrowRight') openAt(current + 1);
+      });
+    })();
+
+    // Fade-up
+    (function(){
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.animate-fadeup').forEach(function(el){ el.classList.add('in-view'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+      document.querySelectorAll('.animate-fadeup').forEach(function(el){ io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
