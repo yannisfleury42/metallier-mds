@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="MDS — Métallier artisan à Saint-Étienne depuis 2018. Garde-corps, portails, escaliers et verrières sur mesure pour particuliers et professionnels en Loire et Auvergne-Rhône-Alpes.">
+  <title>MDS — Métallier Design Service · Saint-Étienne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "MDS - Metallier Design Service",
+    "description": "Atelier de métallerie sur mesure à Saint-Étienne. Garde-corps, portails, escaliers, verrières pour particuliers et professionnels.",
+    "url": "https://metallier-mds.fr",
+    "telephone": "+33643218201",
+    "email": "metallier.mds@gmail.com",
+    "foundingDate": "2018",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "8 Rue Édouard Martel",
+      "postalCode": "42000",
+      "addressLocality": "Saint-Étienne",
+      "addressCountry": "FR"
+    },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "6" }
+  }
+  </script>
+
+  <style>
+  /* ═══════════════════════════════════════════
+     RESET & BASE
+  ═══════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream:   #f7f6f2;
+    --white:   #ffffff;
+    --noir:    #111111;
+    --noir2:   #1a1a1a;
+    --gris:    #f0ede8;
+    --accent:  #E63E00;
+    --accent2: #c53600;
+    --texte:   #111;
+    --texte2:  #555;
+    --texte3:  #999;
+    --border:  #e8e5e0;
+    --nav-h:   72px;
+    --max:     1320px;
+    --pad:     clamp(1.5rem, 5vw, 6rem);
+    --ease:    cubic-bezier(.25,.1,.25,1);
+    --ease-out:cubic-bezier(0,0,.2,1);
+  }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--texte); line-height: 1.5; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ═══════════════════════════════════════════
+     NAVIGATION
+  ═══════════════════════════════════════════ */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    height: var(--nav-h); display: flex; align-items: center;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .nav.scrolled {
+    background: var(--noir);
+    border-color: rgba(255,255,255,.08);
+    box-shadow: 0 2px 24px rgba(0,0,0,.3);
+  }
+  .nav-wrap {
+    max-width: var(--max); width: 100%; margin: 0 auto;
+    padding: 0 var(--pad);
+    display: flex; align-items: center; gap: 2rem;
+  }
+  .logo {
+    display: inline-flex; align-items: baseline; gap: 3px;
+    text-decoration: none; flex-shrink: 0;
+    font-size: 1.45rem; font-weight: 900;
+    letter-spacing: -.02em; color: #fff;
+    line-height: 1;
+  }
+  .logo .logo-accent { color: var(--accent); font-weight: 900; }
+  .logo .logo-tagline {
+    font-size: .48rem; font-weight: 600; letter-spacing: .18em;
+    text-transform: uppercase; color: rgba(255,255,255,.35);
+    align-self: center; margin-left: 6px;
+    line-height: 1.4; display: flex; flex-direction: column;
+  }
+  .logo .logo-tagline em { font-style: normal; color: var(--accent); }
+
+  .nav-links {
+    display: flex; list-style: none; gap: 0; margin-left: auto;
+  }
+  .nav-links a {
+    font-size: .72rem; font-weight: 600; letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.6); padding: .45rem .75rem; border-radius: 2px;
+    transition: color .2s, background .2s;
+  }
+  .nav-links a:hover { color: #fff; background: rgba(255,255,255,.07); }
+
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent); color: #fff;
+    font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    padding: .55rem 1.3rem; border-radius: 2px;
+    transition: background .2s; white-space: nowrap; margin-left: .75rem;
+  }
+  .nav-cta:hover { background: var(--accent2); }
+
+  /* Hamburger mobile */
+  .burger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer;
+    padding: 6px; margin-left: auto;
+  }
+  .burger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--texte); border-radius: 2px;
+    transition: background .3s, transform .3s, opacity .3s;
+  }
+  .nav.scrolled .burger span { background: #fff; }
+  .nav.open .burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav.open .burger span:nth-child(2) { opacity: 0; }
+  .nav.open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Menu mobile */
+  .mobile-menu {
+    display: none; position: fixed;
+    top: var(--nav-h); left: 0; right: 0; bottom: 0;
+    background: var(--noir); z-index: 999;
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.5rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 1.5rem; font-weight: 700; color: #fff; letter-spacing: -.01em;
+    transition: color .2s;
+  }
+  .mobile-menu a:hover { color: var(--accent); }
+  .mobile-menu .mob-cta {
+    background: var(--accent); padding: .9rem 2.5rem;
+    border-radius: 2px; font-size: 1rem;
+    color: #fff; font-weight: 700;
+  }
+
+  /* ═══════════════════════════════════════════
+     HERO V1 — photo plein écran, texte en bas
+  ═══════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    height: 100vh; min-height: 620px;
+    display: flex; align-items: flex-start;
+    overflow: hidden;
+  }
+  .hero-photo {
+    position: absolute; inset: 0; z-index: 0;
+  }
+  .hero-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      linear-gradient(100deg, rgba(10,10,10,.87) 0%, rgba(10,10,10,.58) 42%, rgba(10,10,10,.06) 100%),
+      linear-gradient(to top, rgba(10,10,10,.55) 0%, transparent 38%);
+  }
+  .hero-wrap {
+    position: relative; z-index: 2;
+    width: 100%;
+    padding: calc(var(--nav-h) + 5rem) var(--pad) 5rem;
+  }
+  .hero-eyebrow {
+    font-size: .65rem; font-weight: 700; letter-spacing: .22em;
+    text-transform: uppercase; color: rgba(255,255,255,.45);
+    margin-bottom: 1.2rem; display: block;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 3.8vw, 3.4rem);
+    font-weight: 800; line-height: 1.06; letter-spacing: -.03em;
+    color: #fff; margin: 0 0 1.2rem; max-width: 480px;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-desc {
+    font-size: clamp(.88rem, 1.15vw, .98rem);
+    color: rgba(255,255,255,.52); line-height: 1.7;
+    max-width: 460px; margin-bottom: 2rem;
+  }
+  .hero-desc strong { color: rgba(255,255,255,.85); font-weight: 600; }
+  .hero-btns {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    align-items: center; margin-bottom: 2.8rem;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff;
+    font-weight: 700; font-size: .9rem; letter-spacing: .02em;
+    padding: .9rem 2rem; border-radius: 2px;
+    transition: background .2s, transform .15s;
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+  .btn-outline-dark {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1.5px solid rgba(255,255,255,.35); color: rgba(255,255,255,.85);
+    font-weight: 600; font-size: .9rem;
+    padding: .9rem 2rem; border-radius: 2px;
+    transition: border-color .2s, color .2s;
+  }
+  .btn-outline-dark:hover { border-color: #fff; color: #fff; }
+  .hero-google {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: .82rem; color: rgba(255,255,255,.45);
+  }
+  .hero-google strong { color: #fff; }
+  .hero-google .stars { color: #facc15; letter-spacing: 1px; }
+
+  /* ═══════════════════════════════════════════
+     HERO — 3 CTAs encadrés blancs
+  ═══════════════════════════════════════════ */
+  .hero-nav-client {
+    display: flex; gap: .5rem; flex-wrap: wrap;
+    margin-bottom: 2.2rem;
+  }
+  .hnc-btn {
+    display: flex; align-items: center; gap: .65rem;
+    padding: .6rem .9rem;
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(255,255,255,.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 2px;
+    transition: background .2s, border-color .2s;
+  }
+  .hnc-btn:hover {
+    background: rgba(255,255,255,.11);
+    border-color: rgba(255,255,255,.48);
+  }
+  .hnc-primary {
+    border-color: var(--accent);
+    background: rgba(230,62,0,.12);
+  }
+  .hnc-primary:hover {
+    background: rgba(230,62,0,.24);
+    border-color: var(--accent);
+  }
+  .hnc-icon { color: rgba(255,255,255,.75); flex-shrink: 0; display: flex; }
+  .hnc-primary .hnc-icon { color: var(--accent); }
+  .hnc-text { display: flex; flex-direction: column; gap: 1px; }
+  .hnc-text strong {
+    font-size: .8rem; font-weight: 700; color: #fff; display: block;
+    letter-spacing: .01em;
+  }
+  .hnc-text span {
+    font-size: .68rem; display: block; color: rgba(255,255,255,.42);
+  }
+  .hnc-primary .hnc-text span { color: rgba(255,140,60,.75); }
+
+  /* ═══════════════════════════════════════════
+     SECTION HELPER CLASSES
+  ═══════════════════════════════════════════ */
+  .section-inner {
+    max-width: var(--max); margin: 0 auto; padding: 0 var(--pad);
+  }
+  .section-label {
+    display: block; font-size: .65rem; font-weight: 700;
+    letter-spacing: .26em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: .9rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800;
+    color: var(--noir); letter-spacing: -.025em; line-height: 1.1;
+  }
+  .section-title.light { color: #fff; }
+
+  /* ═══════════════════════════════════════════
+     GAMMES — fond blanc, 4 cartes photo
+  ═══════════════════════════════════════════ */
+  .gammes { background: var(--white); padding: 7rem 0; }
+  .gammes-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3.5rem; gap: 2rem;
+  }
+  .gammes-head p {
+    font-size: .93rem; color: var(--texte3); max-width: 320px;
+    text-align: right; line-height: 1.6;
+  }
+  .gammes-grid {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 1.4rem;
+  }
+  .gamme-card {
+    background: var(--cream); overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+  }
+  .gamme-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,.1);
+  }
+  .gamme-photo {
+    width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #ddd;
+  }
+  .gamme-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s var(--ease);
+  }
+  .gamme-card:hover .gamme-photo img { transform: scale(1.05); }
+  .gamme-body {
+    padding: 1.5rem 1.4rem 1.8rem;
+    display: flex; flex-direction: column; gap: .6rem; flex-grow: 1;
+    border-top: 2px solid transparent;
+    transition: border-color .25s;
+  }
+  .gamme-card:hover .gamme-body { border-color: var(--accent); }
+  .gamme-num { font-size: .62rem; font-weight: 700; letter-spacing: .2em; color: var(--accent); }
+  .gamme-name { font-size: 1.1rem; font-weight: 800; color: var(--noir); }
+  .gamme-desc { font-size: .84rem; color: var(--texte2); line-height: 1.55; flex-grow: 1; }
+  .gamme-lien {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: .78rem; font-weight: 700; color: var(--accent); margin-top: .4rem;
+  }
+
+  /* ═══════════════════════════════════════════
+     RÉALISATIONS — fond crème, grille 3×2
+  ═══════════════════════════════════════════ */
+  .reals { background: var(--cream); padding: 7rem 0; }
+  .reals-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3rem; gap: 1rem;
+  }
+  .reals-head a {
+    font-size: .85rem; font-weight: 700; color: var(--accent);
+    border-bottom: 1px solid var(--accent); padding-bottom: 2px;
+    transition: color .2s; white-space: nowrap;
+  }
+  .reals-head a:hover { color: var(--accent2); border-color: var(--accent2); }
+  .reals-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 260px 220px;
+    gap: .9rem;
+  }
+  .real-cell { overflow: hidden; background: #ddd; position: relative; }
+  .real-cell img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .55s var(--ease);
+  }
+  .real-cell:hover img { transform: scale(1.05); }
+  .real-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: .8rem 1rem;
+    background: linear-gradient(transparent, rgba(0,0,0,.7));
+    color: #fff; font-size: .8rem; font-weight: 600;
+    opacity: 0; transition: opacity .3s;
+  }
+  .real-caption span { display: block; font-weight: 400; font-size: .72rem; color: rgba(255,255,255,.65); }
+  .real-cell:hover .real-caption { opacity: 1; }
+
+  /* ═══════════════════════════════════════════
+     ARTISANS — fond blanc, split
+  ═══════════════════════════════════════════ */
+  .artisans { background: var(--white); padding: 7rem 0; }
+  .artisans-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: center;
+  }
+  .artisans-text h2 { margin-bottom: 1.4rem; }
+  .artisans-text p {
+    font-size: .97rem; color: var(--texte2); line-height: 1.78;
+    margin-bottom: 1rem;
+  }
+  .artisans-text p strong { color: var(--noir); font-weight: 700; }
+  .artisans-valeurs {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: .8rem; margin: 2rem 0;
+  }
+  .valeur {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: .88rem; color: var(--texte2); line-height: 1.4;
+  }
+  .valeur::before {
+    content: ''; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0; margin-top: 6px;
+  }
+  .artisans-photo {
+    aspect-ratio: 4/5; overflow: hidden; background: var(--gris);
+  }
+  .artisans-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ═══════════════════════════════════════════
+     AVIS — fond sombre
+  ═══════════════════════════════════════════ */
+  .avis { background: var(--noir2); padding: 7rem 0; }
+  .avis-head { text-align: center; margin-bottom: 4rem; }
+  .avis-head .section-label { color: rgba(230,62,0,.8); }
+  .avis-head .note-globale {
+    margin-top: 1rem;
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .note-stars { color: #facc15; font-size: 1.2rem; letter-spacing: 3px; }
+  .note-chiffre {
+    font-size: 1.8rem; font-weight: 900; color: #fff; line-height: 1;
+  }
+  .note-chiffre em { font-style: normal; color: var(--accent); font-size: 1.1rem; }
+  .note-count { font-size: .83rem; color: rgba(255,255,255,.35); }
+  .avis-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+  .avis-card {
+    background: #242424; padding: 2rem 1.6rem;
+    border: 1px solid rgba(255,255,255,.07);
+    display: flex; flex-direction: column; gap: .8rem;
+  }
+  .avis-stars { color: #facc15; letter-spacing: 2px; font-size: .9rem; }
+  .avis-text {
+    font-size: .9rem; color: rgba(255,255,255,.5);
+    line-height: 1.65; font-style: italic; flex-grow: 1;
+  }
+  .avis-author { font-size: .82rem; font-weight: 700; color: #fff; }
+  .avis-author span {
+    display: block; font-weight: 400;
+    color: rgba(255,255,255,.3); font-size: .73rem; margin-top: 2px;
+  }
+  .avis-link { text-align: center; }
+  .avis-link a {
+    font-size: .85rem; font-weight: 600; color: var(--accent);
+    border-bottom: 1px solid var(--accent); padding-bottom: 2px;
+  }
+
+  /* ═══════════════════════════════════════════
+     ZONE & CONTACT — fond crème
+  ═══════════════════════════════════════════ */
+  .zone-contact { background: var(--cream); padding: 7rem 0; }
+  .zone-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: center;
+  }
+  .zone-text h2 { margin-bottom: 1.2rem; }
+  .zone-text p { font-size: .97rem; color: var(--texte2); line-height: 1.7; margin-bottom: 2rem; }
+  .zone-list {
+    list-style: none; display: flex; flex-direction: column; gap: .8rem;
+  }
+  .zone-list li {
+    display: flex; align-items: center; gap: .8rem;
+    font-size: .9rem; color: var(--texte2);
+  }
+  .zone-list li::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+  }
+  .contact-card {
+    background: var(--noir); padding: 3rem 2.5rem;
+    display: flex; flex-direction: column; gap: 1.8rem;
+  }
+  .contact-card h3 {
+    font-size: 1.3rem; font-weight: 800; color: #fff; letter-spacing: -.015em;
+  }
+  .contact-line {
+    display: flex; align-items: center; gap: 1rem;
+    font-size: .95rem;
+  }
+  .contact-line a { color: rgba(255,255,255,.75); transition: color .2s; }
+  .contact-line a:hover { color: #fff; }
+  .contact-line svg { color: var(--accent); flex-shrink: 0; }
+  .contact-tel a {
+    font-size: 1.6rem; font-weight: 900; color: #fff;
+    letter-spacing: -.02em;
+  }
+  .contact-devis {
+    background: var(--accent); color: #fff;
+    font-weight: 700; font-size: .9rem;
+    padding: 1rem 1.5rem; text-align: center;
+    transition: background .2s; display: block;
+  }
+  .contact-devis:hover { background: var(--accent2); }
+  .contact-sub { font-size: .78rem; color: rgba(255,255,255,.3); text-align: center; }
+
+  /* ═══════════════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════════════ */
+  footer {
+    background: #0a0a0a; padding: 5rem 0 0;
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+    gap: 4rem; margin-bottom: 4rem;
+  }
+  .footer-logo {
+    font-size: 1.2rem; font-weight: 900; color: #fff; display: block; margin-bottom: 1rem;
+  }
+  .footer-logo em { font-style: normal; color: var(--accent); }
+  .footer-tagline { font-size: .84rem; color: rgba(255,255,255,.35); line-height: 1.6; max-width: 260px; }
+  .footer-col h4 {
+    font-size: .65rem; font-weight: 700; letter-spacing: .22em;
+    text-transform: uppercase; color: rgba(255,255,255,.3);
+    margin-bottom: 1.2rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+  .footer-col ul a { font-size: .85rem; color: rgba(255,255,255,.5); transition: color .2s; }
+  .footer-col ul a:hover { color: #fff; }
+  .footer-contact p { font-size: .85rem; color: rgba(255,255,255,.5); line-height: 1.7; }
+  .footer-contact a { color: rgba(255,255,255,.65); transition: color .2s; }
+  .footer-contact a:hover { color: #fff; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.06);
+    padding: 1.8rem 0; margin-top: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-bottom p { font-size: .75rem; color: rgba(255,255,255,.25); }
+  .footer-legal {
+    display: flex; gap: 1.5rem; list-style: none;
+  }
+  .footer-legal a { font-size: .75rem; color: rgba(255,255,255,.3); transition: color .2s; }
+  .footer-legal a:hover { color: rgba(255,255,255,.6); }
+
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════ */
+  @media(max-width:1100px){
+    .gammes-grid { grid-template-columns: repeat(2,1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  }
+  @media(max-width:900px){
+    .hero-wrap, .artisans-grid, .zone-grid {
+      grid-template-columns: 1fr; gap: 3rem;
+    }
+    .hero-photos {
+      grid-template-rows: 220px 150px;
+    }
+    .reals-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: auto; }
+    .gammes-head, .reals-head { flex-direction: column; align-items: flex-start; }
+    .gammes-head p, .reals-head { text-align: left; }
+    .avis-grid { grid-template-columns: 1fr; }
+    .nav-links, .nav-cta { display: none; }
+    .burger { display: flex; }
+  }
+  @media(max-width:600px){
+    .gammes-grid { grid-template-columns: 1fr; }
+    .reals-grid { grid-template-columns: 1fr; }
+    .artisans-valeurs { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-trust { flex-wrap: wrap; gap: 1.2rem; }
+  }
+
+  /* Animations scroll */
+  .fade-up { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); transition-delay: var(--d,0s); }
+  .fade-up.vis { opacity: 1; transform: none; }
+  @media(prefers-reduced-motion:reduce){ .fade-up { opacity:1; transform:none; } }
+  </style>
+</head>
+<body>
+
+<!-- ═══════ NAVIGATION ═══════ -->
+<nav class="nav" id="nav">
+  <div class="nav-wrap">
+    <a href="#" class="logo">
+      MDS<span class="logo-accent">.</span>
+      <span class="logo-tagline"><span><em>M</em>étallier</span><span><em>D</em>esign <em>S</em>ervice</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#gammes">Gammes</a></li>
+      <li><a href="#realisations">Réalisations</a></li>
+      <li><a href="#artisans">L'atelier</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Devis gratuit</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Menu mobile -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#gammes"      onclick="closeMobile()">Gammes</a>
+  <a href="#realisations" onclick="closeMobile()">Réalisations</a>
+  <a href="#artisans"    onclick="closeMobile()">L'atelier</a>
+  <a href="#contact"     class="mob-cta" onclick="closeMobile()">Devis gratuit</a>
+</div>
+
+<!-- ═══════ HERO V1 — photo plein écran ═══════ -->
+<section class="hero">
+  <div class="hero-photo">
+    <img src="assets/photos-chantiers/escalier-suspendu-bois-verre.webp"
+         alt="Escalier sur mesure réalisé par MDS Saint-Étienne" loading="eager" fetchpriority="high">
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-wrap">
+    <span class="hero-eyebrow">Saint-Étienne · Loire · Depuis 2018</span>
+    <h1>Vos artisans<br>métalliers <em>locaux</em></h1>
+    <p class="hero-desc">
+      <strong>Garde-corps, portails, escaliers, verrières</strong> — conçus, fabriqués et posés dans notre atelier stéphanois. Pour particuliers et professionnels.
+    </p>
+
+    <div class="hero-nav-client">
+
+      <a href="#contact" class="hnc-btn hnc-primary">
+        <span class="hnc-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </span>
+        <span class="hnc-text">
+          <strong>Demander un devis</strong>
+          <span>Gratuit · Réponse sous 48 h</span>
+        </span>
+      </a>
+
+      <a href="#artisans" class="hnc-btn hnc-secondary">
+        <span class="hnc-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </span>
+        <span class="hnc-text">
+          <strong>Qui sommes-nous</strong>
+          <span>L'atelier &amp; les artisans</span>
+        </span>
+      </a>
+
+      <a href="#gammes" class="hnc-btn hnc-secondary">
+        <span class="hnc-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </span>
+        <span class="hnc-text">
+          <strong>Découvrir nos gammes</strong>
+          <span>Garde-corps, portails, escaliers…</span>
+        </span>
+      </a>
+
+    </div>
+
+    <div class="hero-google">
+      <span class="stars">★★★★★</span>
+      <strong>4,7 / 5</strong>
+      <span>sur Google · 6 avis</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ GAMMES ═══════ -->
+<section class="gammes" id="gammes">
+  <div class="section-inner">
+    <div class="gammes-head fade-up">
+      <div>
+        <span class="section-label">Nos spécialités</span>
+        <h2 class="section-title">Des ouvrages variés.<br>Un seul atelier.</h2>
+      </div>
+      <p>Garde-corps, portail, escalier ou verrière — tout est conçu, fabriqué et posé par notre équipe en Loire et Auvergne-Rhône-Alpes.</p>
+    </div>
+    <div class="gammes-grid">
+
+      <a href="garde-corps.html" class="gamme-card fade-up">
+        <div class="gamme-photo">
+          <img src="assets/photos-chantiers/garde-corps-verre-terrasse-jardin.webp" alt="Garde-corps verre" loading="lazy">
+        </div>
+        <div class="gamme-body">
+          <span class="gamme-num">01</span>
+          <div class="gamme-name">Garde-corps</div>
+          <p class="gamme-desc">Terrasses, escaliers, balcons — acier, inox ou verre sur mesure, conformes NF P 01-012.</p>
+          <span class="gamme-lien">Voir la gamme →</span>
+        </div>
+      </a>
+
+      <a href="portails.html" class="gamme-card fade-up" style="--d:.07s">
+        <div class="gamme-photo">
+          <img src="assets/photos-chantiers/portail-fer-forge-double-battant.webp" alt="Portail acier double battant" loading="lazy">
+        </div>
+        <div class="gamme-body">
+          <span class="gamme-num">02</span>
+          <div class="gamme-name">Portails</div>
+          <p class="gamme-desc">Battants ou coulissants auto-portés, motorisables — finition thermolaquée RAL sur mesure.</p>
+          <span class="gamme-lien">Voir la gamme →</span>
+        </div>
+      </a>
+
+      <a href="escaliers.html" class="gamme-card fade-up" style="--d:.14s">
+        <div class="gamme-photo">
+          <img src="assets/photos-chantiers/escalier-moderne-noir-limon-central.webp" alt="Escalier métal" loading="lazy">
+        </div>
+        <div class="gamme-body">
+          <span class="gamme-num">03</span>
+          <div class="gamme-name">Escaliers</div>
+          <p class="gamme-desc">Limon central, crémaillère ou hélicoïdal — marches acier, bois ou verre, intérieur & extérieur.</p>
+          <span class="gamme-lien">Voir la gamme →</span>
+        </div>
+      </a>
+
+      <a href="verrieres.html" class="gamme-card fade-up" style="--d:.21s">
+        <div class="gamme-photo">
+          <img src="assets/photos-chantiers/verriere-noir-salle-de-bain-bois.webp" alt="Verrière style atelier" loading="lazy">
+        </div>
+        <div class="gamme-body">
+          <span class="gamme-num">04</span>
+          <div class="gamme-name">Verrières</div>
+          <p class="gamme-desc">Style industriel pour cuisines, salles de bain, cloisons et vérandas. Acier noir mat.</p>
+          <span class="gamme-lien">Voir la gamme →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ RÉALISATIONS ═══════ -->
+<section class="reals" id="realisations">
+  <div class="section-inner">
+    <div class="reals-head fade-up">
+      <div>
+        <span class="section-label">Réalisations récentes</span>
+        <h2 class="section-title">Quelques chantiers</h2>
+      </div>
+      <a href="realisations.html">Voir toutes les réalisations →</a>
+    </div>
+    <div class="reals-grid">
+      <div class="real-cell fade-up">
+        <img src="assets/photos-chantiers/escalier-suspendu-bois-verre.webp" alt="Escalier suspendu bois verre" loading="lazy">
+        <div class="real-caption">Escalier suspendu bois &amp; verre <span>AuRA · 2025</span></div>
+      </div>
+      <div class="real-cell fade-up" style="--d:.07s">
+        <img src="assets/photos-chantiers/garde-corps-laser-motifs-geometriques.webp" alt="Garde-corps laser" loading="lazy">
+        <div class="real-caption">Garde-corps laser sur mesure <span>Particulier · 2024</span></div>
+      </div>
+      <div class="real-cell fade-up" style="--d:.14s">
+        <img src="assets/photos-chantiers/verriere-rampante-tropical.webp" alt="Verrière rampante" loading="lazy">
+        <div class="real-caption">Verrière rampante <span>Saint-Étienne · 2024</span></div>
+      </div>
+      <div class="real-cell fade-up" style="--d:.07s">
+        <img src="assets/photos-chantiers/portail-fer-forge-double-battant.webp" alt="Portail fer forgé" loading="lazy">
+        <div class="real-caption">Portail double battant <span>Loire · 2024</span></div>
+      </div>
+      <div class="real-cell fade-up" style="--d:.14s">
+        <img src="assets/photos-chantiers/escalier-helicoidal-blanc.webp" alt="Escalier hélicoïdal" loading="lazy">
+        <div class="real-caption">Escalier hélicoïdal blanc <span>Saint-Étienne · 2024</span></div>
+      </div>
+      <div class="real-cell fade-up" style="--d:.21s">
+        <img src="assets/photos-chantiers/garde-corps-fer-forge-grange.webp" alt="Garde-corps fer forgé" loading="lazy">
+        <div class="real-caption">Garde-corps fer forgé <span>Rénovation · 2023</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ARTISANS ═══════ -->
+<section class="artisans" id="artisans">
+  <div class="section-inner">
+    <div class="artisans-grid">
+      <div class="artisans-text fade-up">
+        <span class="section-label">L'atelier</span>
+        <h2 class="section-title" style="margin-bottom:1.4rem">2 frères,<br>1 atelier,<br>tout sur mesure</h2>
+        <p><strong>MDS, c'est Dimitry et Yannis Fleury</strong> — deux frères qui ont fondé leur atelier de métallerie en 2018 à Saint-Étienne.</p>
+        <p>Nous concevons, fabriquons et installons chaque ouvrage nous-mêmes. Pas d'intermédiaire : vous parlez directement aux artisans qui vont réaliser votre projet.</p>
+        <p>Garde-corps, portails, escaliers, verrières — nous intervenons pour les <strong>particuliers, architectes et professionnels</strong> en Loire et Auvergne-Rhône-Alpes.</p>
+        <div class="artisans-valeurs">
+          <div class="valeur">Artisanat français, fabriqué à Saint-Étienne</div>
+          <div class="valeur">Équipements CNC haute précision</div>
+          <div class="valeur">Conseil sur plan d'architecte</div>
+          <div class="valeur">SAV de proximité, un seul interlocuteur</div>
+          <div class="valeur">Particuliers &amp; professionnels</div>
+          <div class="valeur">Devis gratuit sous 48 h</div>
+        </div>
+        <a href="atelier.html" class="btn-outline-dark">En savoir plus sur l'atelier</a>
+      </div>
+      <div class="artisans-photo fade-up" style="--d:.1s">
+        <img src="assets/photos-chantiers/escalier-beton-garde-corps-verre.webp" alt="Réalisation atelier MDS" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ AVIS ═══════ -->
+<section class="avis">
+  <div class="section-inner">
+    <div class="avis-head fade-up">
+      <span class="section-label">Avis clients</span>
+      <h2 class="section-title light">Ce que nos clients en disent</h2>
+      <div class="note-globale">
+        <span class="note-stars">★★★★★</span>
+        <span class="note-chiffre">4,7<em>/5</em></span>
+        <span class="note-count">basé sur 6 avis Google</span>
+      </div>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card fade-up">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">« De supers professionnels. Yannis et Dimitri sont intervenus sur un chantier compliqué. Ils ont été ingénieux et réactifs. Ils ont respecté les délais. Travail très bien réalisé et soigné. »</p>
+        <p class="avis-author">David Breysse <span>Avis Google · octobre 2025</span></p>
+      </div>
+      <div class="avis-card fade-up" style="--d:.08s">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">« Seconde fois que MDS intervient chez nous et le travail est toujours soigné et le rendu au top. Merci. »</p>
+        <p class="avis-author">Jessica Di Prospero <span>Avis Google · décembre 2022</span></p>
+      </div>
+      <div class="avis-card fade-up" style="--d:.16s">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">« Très contente de travailler avec MDS ! Rendu propre et solide ! »</p>
+        <p class="avis-author">Lila Demarcq <span>Avis Google</span></p>
+      </div>
+    </div>
+    <div class="avis-link fade-up">
+      <a href="https://g.page/r/review" target="_blank" rel="noopener">Voir tous les avis Google →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ZONE & CONTACT ═══════ -->
+<section class="zone-contact" id="contact">
+  <div class="section-inner">
+    <div class="zone-grid">
+
+      <div class="zone-text fade-up">
+        <span class="section-label">Zone d'intervention</span>
+        <h2 class="section-title" style="margin-bottom:1.2rem">On vient chez vous</h2>
+        <p>Nous intervenons principalement en Loire (42) et dans toute l'Auvergne-Rhône-Alpes pour les chantiers de pose et d'installation.</p>
+        <ul class="zone-list">
+          <li>Saint-Étienne et agglomération</li>
+          <li>Loire (42) — déplacements sans supplément</li>
+          <li>Auvergne-Rhône-Alpes — sur devis</li>
+          <li>Architectes &amp; professionnels — France entière sur plan</li>
+        </ul>
+      </div>
+
+      <div class="contact-card fade-up" style="--d:.1s">
+        <h3>Parlons de votre projet</h3>
+
+        <div class="contact-line contact-tel">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+33643218201">06 43 21 82 01</a>
+        </div>
+
+        <div class="contact-line">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:metallier.mds@gmail.com">metallier.mds@gmail.com</a>
+        </div>
+
+        <div class="contact-line">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span style="color:rgba(255,255,255,.5);font-size:.88rem">8 Rue Édouard Martel — 42000 Saint-Étienne</span>
+        </div>
+
+        <a href="devis.html" class="contact-devis">Remplir le formulaire de devis gratuit →</a>
+        <p class="contact-sub">Réponse sous 48 h ouvrées · Étude gratuite sans engagement</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="section-inner">
+    <div class="footer-grid">
+
+      <div>
+        <a href="#" class="footer-logo">MDS<em>.</em></a>
+        <p class="footer-tagline">Atelier de métallerie artisanale à Saint-Étienne depuis 2018. Garde-corps, portails, escaliers et verrières sur mesure.</p>
+      </div>
+
+      <nav class="footer-col">
+        <h4>Nos gammes</h4>
+        <ul>
+          <li><a href="garde-corps.html">Garde-corps</a></li>
+          <li><a href="portails.html">Portails</a></li>
+          <li><a href="escaliers.html">Escaliers</a></li>
+          <li><a href="verrieres.html">Verrières</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col">
+        <h4>L'atelier</h4>
+        <ul>
+          <li><a href="atelier.html">Qui sommes-nous</a></li>
+          <li><a href="atelier.html#process">Notre process</a></li>
+          <li><a href="atelier.html#materiaux">Matériaux</a></li>
+          <li><a href="devis.html">Devis gratuit</a></li>
+        </ul>
+      </nav>
+
+      <address class="footer-col footer-contact" style="font-style:normal">
+        <h4>Contact</h4>
+        <p>
+          <a href="tel:+33643218201">06 43 21 82 01</a><br>
+          <a href="mailto:metallier.mds@gmail.com">metallier.mds@gmail.com</a><br>
+          8 Rue Édouard Martel<br>42000 Saint-Étienne
+        </p>
+        <p style="margin-top:1rem">
+          <a href="https://metal-pliage.fr" target="_blank" rel="noopener"
+             style="font-size:.8rem;color:rgba(255,255,255,.35)">
+            Aussi : metal-pliage.fr →
+          </a>
+        </p>
+      </address>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="yr">2026</span> SARL Metallier Design Service — M.D.S. · Capital 5 000 € · RCS Saint-Étienne 844 258 178 · TVA FR77844258178</p>
+      <ul class="footer-legal">
+        <li><a href="cgv.html">CGV</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // Année footer
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Nav scroll
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive:true });
+
+  // Burger menu
+  var burger = document.getElementById('burger');
+  var menu   = document.getElementById('mobile-menu');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  function closeMobile(){
+    nav.classList.remove('open');
+    menu.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+  }
+
+  // Fade-up IntersectionObserver
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('vis');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold:.1, rootMargin:'0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.fade-up').forEach(function(el){ el.classList.add('vis'); });
+  }
+</script>
+</body>
+</html>

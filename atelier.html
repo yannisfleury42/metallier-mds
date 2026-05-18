@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="L'atelier MDS — Métallier Design Service à Saint-Étienne. Deux frères, Dimitry et Yannis Fleury, métalliers depuis 2018. Garde-corps, escaliers, verrières et portails sur mesure.">
+  <meta name="keywords" content="atelier métallier Saint-Étienne, MDS, Métallier Design Service, Dimitry Fleury, Yannis Fleury, atelier acier, métallerie Loire">
+  <meta property="og:title" content="L'atelier MDS — Métallier Design Service Saint-Étienne">
+  <meta property="og:description" content="Deux frères, un atelier à Saint-Étienne, et le souci du détail depuis 2018. Découvrez l'équipe MDS et notre approche du sur mesure.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>L'atelier MDS — Métallier Design Service à Saint-Étienne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://metallier-mds.fr/atelier.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a1a">
+  <meta property="og:image" content="https://metallier-mds.fr/og-cover.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://metallier-mds.fr/og-cover.svg">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "SARL METALLIER DESIGN SERVICE - M.D.S.",
+    "alternateName": "MDS - Metallier Design Service",
+    "image": "https://metallier-mds.fr/og-cover.svg",
+    "@id": "https://metallier-mds.fr/",
+    "url": "https://metallier-mds.fr/",
+    "telephone": "+33643218201",
+    "email": "contact@metallier-mds.fr",
+    "priceRange": "€€-€€€",
+    "foundingDate": "2018",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "8 Rue Édouard Martel",
+      "postalCode": "42000",
+      "addressLocality": "Saint-Étienne",
+      "addressRegion": "Loire",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.4397,
+      "longitude": 4.3872
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "6",
+      "bestRating": "5"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Loire" },
+      { "@type": "AdministrativeArea", "name": "Auvergne-Rhône-Alpes" }
+    ],
+    "vatID": "FR77844258178",
+    "taxID": "844258178",
+    "founder": [
+      { "@type": "Person", "name": "Dimitry Fleury", "jobTitle": "Gérant et chef d'atelier" },
+      { "@type": "Person", "name": "Yannis Fleury", "jobTitle": "Gérant et responsable commercial" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://metallier-mds.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "L'atelier", "item": "https://metallier-mds.fr/atelier.html" }
+    ]
+  }
+  </script>
+
+  <style>
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.7rem 1.2rem;
+      border-radius: 4px;
+      z-index: 10000;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: top var(--t) var(--ease);
+    }
+    .skip-link:focus { top: 1rem; outline: 2px solid #fff; outline-offset: 2px; }
+
+    .footer-inner {
+      grid-template-columns: 1.4fr 1fr 1fr 1fr !important;
+    }
+    .footer-brand .footer-tagline { max-width: 280px; }
+    @media (max-width: 900px) {
+      .footer-inner { grid-template-columns: 1fr 1fr !important; }
+    }
+    @media (max-width: 600px) {
+      .footer-inner { grid-template-columns: 1fr !important; }
+    }
+
+    @media (max-width: 640px) {
+      .whatsapp-label { display: none; }
+    }
+
+    .logo-mds {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 2px;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+      text-decoration: none;
+      line-height: 1;
+    }
+    .logo-mds-main { font-size: 1.35rem; }
+    .logo-mds-main span { color: var(--accent); }
+    .logo-mds-sub {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* HERO ATELIER — full-bleed avec image de fond + overlay */
+    .atelier-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: flex-end;
+      padding: calc(var(--nav-h) + 3rem) 0 4rem;
+      overflow: hidden;
+      background: #0f0f0f;
+      border-bottom: 1px solid var(--border);
+    }
+    .atelier-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .atelier-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.45;
+    }
+    .atelier-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,15,15,0.4) 0%, rgba(15,15,15,0.92) 90%);
+    }
+    .atelier-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      width: 100%;
+    }
+    .atelier-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+      color: var(--text-primary);
+    }
+    .atelier-hero h1 .accent { color: var(--accent); }
+    .atelier-hero-sub {
+      color: var(--text-secondary);
+      font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+      line-height: 1.55;
+      max-width: 700px;
+      margin-bottom: 0;
+    }
+
+    /* Section standard */
+    .mds-section {
+      padding: var(--section-pad) 0;
+    }
+    .mds-section-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+    }
+    .mds-section-header {
+      max-width: 760px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+    .mds-section-header h2 { margin-bottom: 1rem; }
+    .mds-section-header p {
+      color: var(--text-secondary);
+      font-size: 1.02rem;
+      line-height: 1.6;
+    }
+
+    /* HISTOIRE — bloc texte centré */
+    .atelier-story {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .atelier-story p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+    .atelier-story p strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* CHIFFRES CLÉS */
+    .atelier-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 3rem auto 0;
+    }
+    .atelier-stat {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      border-top: 3px solid var(--accent);
+    }
+    .atelier-stat-num {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .atelier-stat-label {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    @media (max-width: 700px) {
+      .atelier-stats { grid-template-columns: 1fr; }
+    }
+
+    /* PILIERS — 3 colonnes */
+    .atelier-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+    }
+    .atelier-pillar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem 1.6rem;
+    }
+    .atelier-pillar-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(230,62,0,0.10);
+      border-radius: 4px;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+    .atelier-pillar h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+    }
+    .atelier-pillar p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .atelier-pillars { grid-template-columns: 1fr; }
+    }
+
+    /* SECTION FRÈRES */
+    .atelier-team-bg {
+      background: #1a1a1a;
+    }
+    .atelier-team {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .atelier-person {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem 1.8rem;
+      position: relative;
+    }
+    .atelier-person-placeholder {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 1.4rem;
+    }
+    .atelier-person-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+    }
+    .atelier-person-role {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .atelier-person-bio {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+    .atelier-person-bio strong { color: var(--text-primary); font-weight: 600; }
+    .atelier-person-skill {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
+      background: rgba(230,62,0,0.10);
+      color: var(--accent);
+      border-radius: 4px;
+      margin-top: 0.4rem;
+    }
+    .atelier-team-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    @media (max-width: 700px) {
+      .atelier-team { grid-template-columns: 1fr; }
+    }
+
+    /* SECTION ATELIER — split avec image */
+    .atelier-workshop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .atelier-workshop-text h2 { margin-bottom: 1.4rem; }
+    .atelier-workshop-text p {
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+    .atelier-workshop-text strong { color: var(--text-primary); }
+    .atelier-workshop-img {
+      aspect-ratio: 4/5;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #1a1a1a;
+    }
+    .atelier-workshop-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .atelier-workshop-info {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      padding: 1.4rem 1.6rem;
+      background: var(--bg-surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+    }
+    .atelier-workshop-info-row {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      font-size: 0.95rem;
+    }
+    .atelier-workshop-info-label {
+      font-weight: 600;
+      color: var(--text-primary);
+      flex-shrink: 0;
+      min-width: 100px;
+    }
+    .atelier-workshop-info-value {
+      color: var(--text-secondary);
+    }
+    @media (max-width: 900px) {
+      .atelier-workshop { grid-template-columns: 1fr; gap: 2.5rem; }
+      .atelier-workshop-img { max-width: 460px; margin: 0 auto; }
+    }
+
+    /* SECTION SISTER SITE */
+    .atelier-sister {
+      background: #1a1a1a;
+    }
+    .atelier-sister-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, rgba(230,62,0,0.06), transparent);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .atelier-sister-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .atelier-sister h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 1rem;
+    }
+    .atelier-sister p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* CTA FINAL */
+    .mds-final-cta {
+      background: var(--bg-base);
+      text-align: center;
+    }
+    .mds-final-cta h2 { margin-bottom: 1.5rem; }
+    .mds-final-cta p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .mds-footer-bottom-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity var(--t) var(--ease);
+    }
+    .mds-footer-bottom-link:hover { opacity: 1; color: var(--accent); }
+    .mds-footer-bottom-link strong { color: var(--text-secondary); font-weight: 600; }
+
+    .animate-fadeup {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+      transition-delay: var(--delay, 0s);
+    }
+    .animate-fadeup.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <nav id="navbar" aria-label="Navigation principale">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="logo logo-mds" aria-label="MDS — Métallier Design Service — Accueil">
+          <span class="logo-mds-main">MDS<span>.</span></span>
+          <span class="logo-mds-sub">Métallier Design Service</span>
+        </a>
+        <div class="france-badge" aria-label="Fabriqué en France">
+          <div class="france-flag" aria-hidden="true">
+            <span class="f-blue"></span>
+            <span class="f-white"></span>
+            <span class="f-red"></span>
+          </div>
+          Fabriqué en France
+        </div>
+      </div>
+      <button class="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-links" role="list">
+        <li class="nav-item"><a href="garde-corps.html">Garde-corps</a></li>
+        <li class="nav-item"><a href="portails.html">Portails</a></li>
+        <li class="nav-item"><a href="escaliers.html">Escaliers</a></li>
+        <li class="nav-item"><a href="verrieres.html">Verrières</a></li>
+        <li class="nav-item"><a href="atelier.html" class="active" aria-current="page">L'atelier</a></li>
+        <li class="nav-item"><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="contact.html" class="nav-cta btn-outline">Devis sur plan</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+  <!-- ═══════════════════════════════════════════
+       HERO ATELIER
+  ═══════════════════════════════════════════ -->
+  <section class="atelier-hero" aria-labelledby="atelier-hero-title">
+    <div class="atelier-hero-bg" aria-hidden="true">
+      <img src="assets/photos-chantiers/escalier-design-ondule-double-limon.webp" alt="" loading="eager" decoding="async" fetchpriority="high" width="1600" height="1000">
+    </div>
+    <div class="atelier-hero-inner">
+      <div class="animate-fadeup">
+        <span class="section-label" style="color: var(--accent);">L'ATELIER</span>
+        <h1 id="atelier-hero-title">L'atelier <span class="accent">MDS</span> — Métallier Design Service</h1>
+        <p class="atelier-hero-sub">
+          Deux frères, un atelier à Saint-Étienne, et le souci du détail depuis 2018.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       HISTOIRE + CHIFFRES
+  ═══════════════════════════════════════════ -->
+  <section class="mds-section" aria-labelledby="story-title">
+    <div class="mds-section-inner">
+      <header class="mds-section-header animate-fadeup">
+        <span class="section-label">NOTRE HISTOIRE</span>
+        <h2 id="story-title">Né d'une envie de bien faire</h2>
+      </header>
+
+      <div class="atelier-story animate-fadeup">
+        <p>
+          <strong>MDS — Métallier Design Service</strong> est né en 2018 à Saint-Étienne de l'envie de
+          <strong>Dimitry et Yannis Fleury</strong> de créer leur propre atelier de métallerie sur mesure.
+          Issus tous les deux du métier, ils se sont associés pour proposer une qualité de fabrication artisanale,
+          alliée à des outils de précision CNC (découpe laser, pliage numérique, soudure TIG),
+          pour tout type d'ouvrage <strong>acier, inox et aluminium</strong>.
+        </p>
+      </div>
+
+      <div class="atelier-stats">
+        <div class="atelier-stat animate-fadeup">
+          <div class="atelier-stat-num">2018</div>
+          <div class="atelier-stat-label">Création de l'atelier</div>
+        </div>
+        <div class="atelier-stat animate-fadeup" style="--delay: 0.05s">
+          <div class="atelier-stat-num">200+</div>
+          <div class="atelier-stat-label">Chantiers livrés</div>
+        </div>
+        <div class="atelier-stat animate-fadeup" style="--delay: 0.1s">
+          <div class="atelier-stat-num">4,7/5</div>
+          <div class="atelier-stat-label">Avis Google clients</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       NOTRE APPROCHE — 3 PILIERS
+  ═══════════════════════════════════════════ -->
+  <section class="mds-section" id="process" aria-labelledby="approach-title">
+    <div class="mds-section-inner">
+      <header class="mds-section-header animate-fadeup">
+        <span class="section-label">NOTRE APPROCHE</span>
+        <h2 id="approach-title">Trois piliers, une promesse</h2>
+        <p>Ce qui nous distingue : aucune configuration figée, des outils de précision, et l'engagement de bout en bout.</p>
+      </header>
+
+      <div class="atelier-pillars">
+
+        <article class="atelier-pillar animate-fadeup">
+          <div class="atelier-pillar-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3>Sur mesure absolu</h3>
+          <p>Aucune configuration n'est figée. Vous nous envoyez un plan, une photo d'inspiration, ou un croquis sur un coin de table — on l'étudie et on le fabrique. Pas de catalogue limitant.</p>
+        </article>
+
+        <article class="atelier-pillar animate-fadeup" style="--delay: 0.05s">
+          <div class="atelier-pillar-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <h3>Précision CNC</h3>
+          <p>Découpe laser, pliage à commande numérique, soudure TIG. Tolérance <strong>±0,5 mm</strong> garantie sur les ouvrages d'art. Aucune approximation, du dessin à l'assemblage.</p>
+        </article>
+
+        <article class="atelier-pillar animate-fadeup" style="--delay: 0.1s">
+          <div class="atelier-pillar-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3>Conseil et pose</h3>
+          <p>Nous nous déplaçons sur site pour mesurer, conseiller et installer. <strong>Pas de sous-traitance</strong> — c'est notre équipe du début à la fin, garantie décennale incluse.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       LES FRÈRES FLEURY
+  ═══════════════════════════════════════════ -->
+  <section class="mds-section atelier-team-bg" aria-labelledby="team-title">
+    <div class="mds-section-inner">
+      <header class="mds-section-header animate-fadeup">
+        <span class="section-label">L'ÉQUIPE</span>
+        <h2 id="team-title">Les frères Fleury</h2>
+        <p>Deux parcours, deux spécialités complémentaires, un même atelier.</p>
+      </header>
+
+      <div class="atelier-team">
+
+        <article class="atelier-person animate-fadeup">
+          <div class="atelier-person-placeholder" aria-hidden="true">DF</div>
+          <div class="atelier-person-name">Dimitry Fleury</div>
+          <div class="atelier-person-role">Gérant &amp; chef d'atelier</div>
+          <p class="atelier-person-bio">
+            Issu d'un parcours en métallerie depuis 2010, Dimitry pilote la fabrication à l'atelier.
+            Soudure, ajustage, assemblage : il est garant de la qualité d'exécution de chaque pièce qui sort de chez MDS.
+          </p>
+          <span class="atelier-person-skill">Soudure TIG complexe</span>
+          <span class="atelier-person-skill">Escaliers techniques</span>
+        </article>
+
+        <article class="atelier-person animate-fadeup" style="--delay: 0.05s">
+          <div class="atelier-person-placeholder" aria-hidden="true">YF</div>
+          <div class="atelier-person-name">Yannis Fleury</div>
+          <div class="atelier-person-role">Gérant &amp; responsable commercial</div>
+          <p class="atelier-person-bio">
+            Issu du métier depuis 2010, Yannis prend en charge la relation client : visite sur site, conception 3D,
+            devis et suivi de chantier jusqu'à la pose. Votre interlocuteur unique du premier appel à la livraison.
+          </p>
+          <span class="atelier-person-skill">Conception 3D</span>
+          <span class="atelier-person-skill">Devis &amp; suivi client</span>
+        </article>
+
+      </div>
+
+      <p class="atelier-team-note">Photos à venir.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       NOTRE ATELIER
+  ═══════════════════════════════════════════ -->
+  <section class="mds-section" id="materiaux" aria-labelledby="workshop-title">
+    <div class="mds-section-inner">
+      <div class="atelier-workshop">
+
+        <div class="atelier-workshop-text animate-fadeup">
+          <span class="section-label">NOTRE ATELIER</span>
+          <h2 id="workshop-title">8 Rue Édouard Martel, Saint-Étienne</h2>
+          <p>
+            Notre atelier est équipé pour répondre à tous types d'ouvrages : <strong>presse-plieuse CNC</strong>,
+            <strong>table de découpe laser</strong>, <strong>postes de soudure TIG et MIG</strong>,
+            banc de pliage manuel pour les ouvrages d'art et fer forgé traditionnel.
+          </p>
+          <p>
+            Cette combinaison nous permet de fabriquer aussi bien des séries (couvertines, garde-corps standards)
+            que des pièces uniques d'orfèvrerie métallique. Tout passe par les mêmes mains, dans le même lieu.
+          </p>
+
+          <div class="atelier-workshop-info">
+            <div class="atelier-workshop-info-row">
+              <span class="atelier-workshop-info-label">Adresse</span>
+              <span class="atelier-workshop-info-value">8 Rue Édouard Martel, 42000 Saint-Étienne</span>
+            </div>
+            <div class="atelier-workshop-info-row">
+              <span class="atelier-workshop-info-label">Téléphone</span>
+              <span class="atelier-workshop-info-value"><a href="tel:+33643218201" style="color:var(--accent);text-decoration:none;font-weight:600;">06 43 21 82 01</a></span>
+            </div>
+            <div class="atelier-workshop-info-row">
+              <span class="atelier-workshop-info-label">Horaires</span>
+              <span class="atelier-workshop-info-value">Lun-Ven 8h-18h · Visite sur RDV</span>
+            </div>
+            <div class="atelier-workshop-info-row">
+              <span class="atelier-workshop-info-label">Zone</span>
+              <span class="atelier-workshop-info-value">Loire &amp; Auvergne-Rhône-Alpes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="atelier-workshop-img animate-fadeup" style="--delay: 0.1s">
+          <img src="assets/photos-chantiers/escalier-design-ondule-double-limon.webp" alt="Escalier sur mesure réalisé par MDS — double limon design avec garde-corps ondulé acier brut" loading="lazy" decoding="async" width="500" height="625">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SISTER SITE : METAL PLIAGE
+  ═══════════════════════════════════════════ -->
+  <section class="mds-section atelier-sister" aria-labelledby="sister-title">
+    <div class="mds-section-inner">
+      <div class="atelier-sister-inner animate-fadeup">
+        <span class="atelier-sister-label">Notre site sœur</span>
+        <h2 id="sister-title">Aussi disponible : Metal Pliage</h2>
+        <p>
+          En parallèle de l'atelier sur mesure MDS, nous opérons <strong>metal-pliage.fr</strong>,
+          notre site e-commerce dédié aux couvertines et au pliage acier configurables en ligne.
+          Pratique pour les pros et les particuliers qui ont besoin de pièces standardisées sous 10 jours.
+        </p>
+        <a href="https://metal-pliage.fr" target="_blank" rel="noopener" class="btn-primary">
+          Voir metal-pliage.fr
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px;vertical-align:middle;" aria-hidden="true">
+            <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CTA FINAL
+  ═══════════════════════════════════════════ -->
+  <section class="mds-section mds-final-cta" aria-labelledby="final-cta-title">
+    <div class="mds-section-inner">
+      <h2 id="final-cta-title" class="animate-fadeup">Un projet ? Discutons-en.</h2>
+      <p class="animate-fadeup" style="--delay: 0.05s">RDV technique gratuit sur site, devis sous 48 h, garantie décennale.</p>
+      <a href="contact.html" class="btn-primary animate-fadeup" style="--delay: 0.1s">Demander un devis</a>
+    </div>
+  </section>
+
+  </main>
+
+  <footer id="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo logo-mds" aria-label="MDS — Retour à l'accueil">
+          <span class="logo-mds-main">MDS<span>.</span></span>
+          <span class="logo-mds-sub">Métallier Design Service</span>
+        </a>
+        <p class="footer-tagline">Atelier français · Garde-corps · Portails · Escaliers · Verrières</p>
+      </div>
+      <nav class="footer-nav" aria-label="Activités">
+        <h4 style="font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;">Activités</h4>
+        <ul role="list">
+          <li><a href="garde-corps.html">Garde-corps</a></li>
+          <li><a href="portails.html">Portails</a></li>
+          <li><a href="escaliers.html">Escaliers</a></li>
+          <li><a href="verrieres.html">Verrières</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav" aria-label="L'atelier">
+        <h4 style="font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;">L'atelier</h4>
+        <ul role="list">
+          <li><a href="atelier.html">Qui sommes-nous</a></li>
+          <li><a href="atelier.html#process">Notre process</a></li>
+          <li><a href="atelier.html#materiaux">Matériaux</a></li>
+          <li><a href="contact.html">Demander un devis</a></li>
+        </ul>
+      </nav>
+      <address class="footer-contact">
+        <h4 style="font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;font-style:normal;">Contact</h4>
+        <p><a href="tel:+33643218201">06 43 21 82 01</a></p>
+        <p><a href="mailto:contact@metallier-mds.fr">contact@metallier-mds.fr</a></p>
+        <p>8 Rue Édouard Martel<br>42000 Saint-Étienne</p>
+      </address>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="footer-year">2026</span> SARL Metallier Design Service — Tous droits réservés</p>
+      <div class="footer-legal-links">
+        <a href="cgv.html">CGV</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+      </div>
+      <p class="footer-legal-line">SARL METALLIER DESIGN SERVICE - M.D.S. · Capital 5 000 € · RCS Saint-Étienne 844 258 178 · TVA FR77844258178</p>
+      <a href="https://metal-pliage.fr" target="_blank" rel="noopener" class="mds-footer-bottom-link">
+        Voir aussi notre site e-commerce <strong>metal-pliage.fr</strong> (couvertines & pliage acier)
+      </a>
+    </div>
+  </footer>
+
+  <a id="whatsapp-sticky" href="https://wa.me/33643218201?text=Bonjour%20MDS%2C%20j%27aimerais%20%C3%A9changer%20sur%20un%20projet." target="_blank" rel="noopener" aria-label="Contacter MDS sur WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+    </svg>
+    <span class="whatsapp-label">WhatsApp</span>
+  </a>
+
+  <script>
+    (function(){
+      var y = document.getElementById('footer-year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+
+    (function(){
+      var nav = document.getElementById('navbar');
+      var burger = document.querySelector('.nav-hamburger');
+      var links = document.getElementById('nav-links');
+      if (burger && nav) {
+        burger.addEventListener('click', function(){
+          var open = nav.classList.toggle('nav-open');
+          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+      if (links) {
+        links.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click', function(){
+            nav.classList.remove('nav-open');
+            if (burger) burger.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+      var onScroll = function(){
+        if (window.scrollY > 30) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    (function(){
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.animate-fadeup').forEach(function(el){ el.classList.add('in-view'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.animate-fadeup').forEach(function(el){ io.observe(el); });
+    })();
+  </script>
+</body>
+</html>

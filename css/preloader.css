@@ -1,0 +1,114 @@
+/* ══════════════════════════════════════════════════════════════
+   PRELOADER — Couvertine sur muret + goutte + check étanche
+   Utilisé sur toutes les pages (preloader initial + transitions).
+   Logique : js/preloader.js (auto-injection HTML).
+══════════════════════════════════════════════════════════════ */
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.55s;
+}
+
+#preloader.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.pl-scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.pl-svg {
+  width: clamp(220px, 48vw, 340px);
+  height: auto;
+  opacity: 0;
+  animation: plAppear 0.3s 0.05s ease-out forwards;
+}
+@keyframes plAppear { to { opacity: 1; } }
+
+/* Couvertine : descend et se pose sur le muret avec rebond léger */
+.pl-couv {
+  transform: translateY(-90px);
+  opacity: 0;
+  animation: plCouvDrop 0.85s 0.25s cubic-bezier(0.45, 1.6, 0.55, 1) forwards;
+}
+@keyframes plCouvDrop {
+  0%   { transform: translateY(-90px); opacity: 0; }
+  18%  { opacity: 1; }
+  78%  { transform: translateY(0); }
+  86%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Goutte d'eau : tombe depuis le rejet 45° */
+.pl-water { animation: plWaterDrip 0.7s 1.05s ease-in forwards; }
+@keyframes plWaterDrip {
+  0%   { opacity: 0; transform: translateY(0); }
+  20%  { opacity: 1; transform: translateY(0); }
+  85%  { opacity: 1; transform: translateY(26px); }
+  100% { opacity: 0; transform: translateY(34px); }
+}
+
+/* Check vert "étanche" : pop in */
+.pl-check {
+  opacity: 0;
+  transform: scale(0.5);
+  transform-origin: 220px 50px;
+  animation: plCheckPop 0.45s 1.4s cubic-bezier(0.4, 1.5, 0.55, 1) forwards;
+}
+@keyframes plCheckPop {
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Label METAL PLIAGE */
+.pl-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1rem, 3.5vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: plLabelIn 0.5s 1.12s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+@keyframes plLabelIn { to { opacity: 1; transform: translateY(0); } }
+.pl-name   { color: #EEF3F8; }
+.pl-accent { color: #E63E00; }
+
+/* Barre de progression */
+.preloader-bar-wrap {
+  width: clamp(140px, 28vw, 260px);
+  height: 1px;
+  background: #1C1C1C;
+  position: relative;
+  overflow: hidden;
+}
+.preloader-bar-fill {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #E63E00, #FFB347);
+  animation: preloaderBar 1.6s 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes preloaderBar { to { width: 100%; } }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #preloader .preloader-bar-fill { animation: none; width: 100%; }
+  #preloader .pl-couv,
+  #preloader .pl-check,
+  #preloader .pl-label,
+  #preloader .pl-svg { animation: none; opacity: 1; transform: none; }
+  #preloader .pl-water { display: none; }
+}

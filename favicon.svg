@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#1a1a1a"/>
+  <text x="32" y="42" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif"
+        font-weight="800"
+        font-size="22"
+        letter-spacing="-1"
+        fill="#ffffff">MDS</text>
+  <circle cx="51" cy="14" r="6" fill="#E63E00"/>
+</svg>

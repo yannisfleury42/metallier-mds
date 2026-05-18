@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#242424"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5a5a5a"/>
+      <stop offset="50%" stop-color="#d4d4d4"/>
+      <stop offset="100%" stop-color="#787878"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7fb8d4" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3a6b85" stop-opacity="0.45"/>
+    </linearGradient>
+    <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2d2d2d" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- Composition métallerie : garde-corps + verre stylisé -->
+  <g transform="translate(700, 130)">
+    <!-- Main courante -->
+    <rect x="0" y="0" width="440" height="14" rx="2" fill="url(#steel)" stroke="#2a2a2a" stroke-width="1"/>
+    <!-- Panneau verre -->
+    <rect x="20" y="30" width="400" height="240" fill="url(#glass)" stroke="url(#steel)" stroke-width="3"/>
+    <line x1="20" y1="150" x2="420" y2="150" stroke="#9ec6dc" stroke-width="0.8" opacity="0.6"/>
+    <!-- Montants -->
+    <rect x="0" y="14" width="14" height="320" fill="#3a3a3a" stroke="#1a1a1a" stroke-width="1"/>
+    <rect x="426" y="14" width="14" height="320" fill="#3a3a3a" stroke="#1a1a1a" stroke-width="1"/>
+    <rect x="213" y="14" width="14" height="320" fill="#3a3a3a" stroke="#1a1a1a" stroke-width="1"/>
+    <!-- Plinthe -->
+    <rect x="0" y="320" width="440" height="14" fill="url(#steel)" stroke="#2a2a2a" stroke-width="1"/>
+    <!-- Sol -->
+    <rect x="-30" y="334" width="500" height="80" fill="#5d5d5d" opacity="0.45"/>
+  </g>
+
+  <!-- Logo / Marque -->
+  <g transform="translate(80, 200)">
+    <text font-family="'Inter', system-ui, sans-serif" font-weight="800" font-size="140" letter-spacing="-4" fill="#ffffff">
+      <tspan x="0" y="0">MDS</tspan>
+    </text>
+    <line x1="0" y1="34" x2="120" y2="34" stroke="#E63E00" stroke-width="6"/>
+    <text x="0" y="92" font-family="'Inter', system-ui, sans-serif" font-weight="700" font-size="42" fill="#f5f5f5">
+      Metallier Design Service
+    </text>
+    <text x="0" y="148" font-family="'Inter', system-ui, sans-serif" font-weight="500" font-size="28" fill="#c8c8c8">
+      Garde-corps, portails, escaliers, verrieres
+    </text>
+    <text x="0" y="186" font-family="'Inter', system-ui, sans-serif" font-weight="500" font-size="28" fill="#c8c8c8">
+      sur mesure - Saint-Etienne depuis 2018
+    </text>
+  </g>
+
+  <!-- Badge France -->
+  <g transform="translate(80, 530)">
+    <rect x="0" y="0" width="50" height="34" fill="#0055A4"/>
+    <rect x="17" y="0" width="16" height="34" fill="#ffffff"/>
+    <rect x="33" y="0" width="17" height="34" fill="#EF4135"/>
+    <text x="64" y="23" font-family="'Inter', system-ui, sans-serif" font-weight="600" font-size="18" fill="#ffffff">Artisanat metallier francais</text>
+  </g>
+
+  <!-- URL en bas -->
+  <text x="1120" y="595" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-weight="500" font-size="20" fill="#888888">metallier-mds.fr</text>
+</svg>

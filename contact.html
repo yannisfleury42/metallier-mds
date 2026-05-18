@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Contactez MDS Saint-Étienne — Métallier Design Service. Devis gratuit sous 48h ouvrées, RDV technique sur site en Loire et Auvergne-Rhône-Alpes.">
+  <meta name="keywords" content="contact métallier Saint-Étienne, MDS devis, garde-corps sur mesure devis, portail métal devis">
+  <meta property="og:title" content="Contact — MDS Métallier Saint-Étienne">
+  <meta property="og:description" content="Devis gratuit sous 48h ouvrées. Téléphone, email, WhatsApp, formulaire en ligne.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Contact &amp; devis — MDS Métallier Saint-Étienne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://metallier-mds.fr/contact.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a1a">
+  <meta property="og:image" content="https://metallier-mds.fr/og-cover.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://metallier-mds.fr/og-cover.svg">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://metallier-mds.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://metallier-mds.fr/contact.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "MDS - Metallier Design Service",
+    "image": "https://metallier-mds.fr/og-cover.svg",
+    "telephone": "+33643218201",
+    "email": "contact@metallier-mds.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "8 Rue Édouard Martel",
+      "postalCode": "42000",
+      "addressLocality": "Saint-Étienne",
+      "addressCountry": "FR"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }]
+  }
+  </script>
+
+  <style>
+    .skip-link {
+      position: absolute; top: -100px; left: 1rem;
+      background: var(--accent); color: #fff;
+      padding: 0.7rem 1.2rem; border-radius: 4px;
+      z-index: 10000; font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; transition: top var(--t) var(--ease);
+    }
+    .skip-link:focus { top: 1rem; outline: 2px solid #fff; outline-offset: 2px; }
+
+    .footer-inner { grid-template-columns: 1.4fr 1fr 1fr 1fr !important; }
+    .footer-brand .footer-tagline { max-width: 280px; }
+    @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr !important; } }
+    @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr !important; } }
+    @media (max-width: 640px) { .whatsapp-label { display: none; } }
+
+    .logo-mds {
+      display: inline-flex; flex-direction: column; gap: 2px;
+      font-family: var(--font-head); font-weight: 800;
+      font-size: 1.2rem; letter-spacing: 0.04em;
+      color: var(--text-primary); text-decoration: none; line-height: 1;
+    }
+    .logo-mds-main { font-size: 1.35rem; }
+    .logo-mds-main span { color: var(--accent); }
+    .logo-mds-sub {
+      font-size: 0.62rem; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--text-muted);
+    }
+
+    .mds-breadcrumb {
+      background: #1a1a1a; border-bottom: 1px solid var(--border);
+      padding: calc(var(--nav-h) + 1.2rem) 0 1.2rem;
+    }
+    .mds-breadcrumb-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+    }
+    .mds-breadcrumb ol {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      list-style: none; padding: 0; margin: 0;
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+    .mds-breadcrumb a { color: var(--text-secondary); text-decoration: none; transition: color var(--t) var(--ease); }
+    .mds-breadcrumb a:hover { color: var(--accent); }
+    .mds-breadcrumb-sep { color: var(--text-muted); opacity: 0.5; }
+    .mds-breadcrumb [aria-current="page"] { color: var(--text-primary); font-weight: 600; }
+
+    /* HERO */
+    .mds-contact-hero {
+      background: #0f0f0f; padding: 4rem 0;
+      border-bottom: 1px solid var(--border); text-align: center;
+    }
+    .mds-contact-hero-inner {
+      max-width: 820px; margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+    }
+    .mds-contact-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 800; letter-spacing: -0.02em;
+      line-height: 1.1; margin: 1rem 0 1.2rem; color: var(--text-primary);
+    }
+    .mds-contact-hero h1 .accent { color: var(--accent); }
+    .mds-contact-hero-sub {
+      color: var(--text-secondary); font-size: 1.05rem;
+      line-height: 1.65; max-width: 640px; margin: 0 auto;
+    }
+
+    .mds-section { padding: var(--section-pad) 0; }
+    .mds-section-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+    }
+    .mds-section-header {
+      max-width: 760px; margin: 0 auto 3rem; text-align: center;
+    }
+    .mds-section-header h2 { margin-bottom: 1rem; }
+    .mds-section-header p { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.6; }
+
+    /* 3 CARTES */
+    .mds-contact-channels {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
+    }
+    .mds-channel-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem 1.6rem;
+      text-align: center;
+      transition: border-color var(--t) var(--ease), transform var(--t) var(--ease);
+      text-decoration: none;
+      color: inherit;
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+    }
+    .mds-channel-card:hover {
+      border-color: var(--accent); transform: translateY(-4px);
+    }
+    .mds-channel-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(230,62,0,0.10);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); margin-bottom: 0.6rem;
+    }
+    .mds-channel-card h3 {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted); margin: 0;
+    }
+    .mds-channel-value {
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--text-primary); margin: 0;
+    }
+    .mds-channel-note { font-size: 0.82rem; color: var(--text-secondary); margin: 0; }
+
+    /* FORM */
+    .mds-form-wrapper {
+      max-width: 720px; margin: 0 auto;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+    }
+    .mds-form-rgpd {
+      font-size: 0.78rem; color: var(--text-muted);
+      text-align: center; margin-top: 1.2rem; line-height: 1.6;
+    }
+    .mds-form-rgpd a { color: var(--accent); text-decoration: none; }
+    .mds-form-rgpd a:hover { text-decoration: underline; }
+
+    /* ATELIER */
+    .mds-atelier-card {
+      max-width: 920px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden;
+    }
+    .mds-atelier-info { padding: 2rem; }
+    .mds-atelier-info h3 {
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--text-primary); margin-bottom: 1.2rem;
+    }
+    .mds-atelier-info p { color: var(--text-secondary); margin: 0.4rem 0; font-size: 0.92rem; line-height: 1.6; }
+    .mds-atelier-info p strong { color: var(--text-primary); }
+    .mds-atelier-tag {
+      display: inline-block;
+      margin-top: 1rem; padding: 4px 10px;
+      font-size: 0.74rem; font-weight: 500;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      background: rgba(230,62,0,0.10); color: var(--accent);
+      border-radius: 4px;
+    }
+    .mds-atelier-map {
+      background: #1a1a1a; min-height: 280px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); font-size: 0.85rem; text-align: center;
+      padding: 1rem; border-left: 1px solid var(--border);
+    }
+    .mds-atelier-map svg { margin-bottom: 0.6rem; color: var(--text-muted); }
+
+    /* BANDEAU DEVIS */
+    .mds-devis-banner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 2rem clamp(1.5rem, 4vw, 3rem);
+      background: linear-gradient(135deg, rgba(230,62,0,0.10), rgba(230,62,0,0.03));
+      border: 1px solid rgba(230,62,0,0.30);
+      border-radius: 4px;
+      display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .mds-devis-banner-text { flex: 1 1 360px; }
+    .mds-devis-banner-text h3 {
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--text-primary); margin-bottom: 0.4rem;
+    }
+    .mds-devis-banner-text p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.55; }
+
+    .animate-fadeup {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+      transition-delay: var(--delay, 0s);
+    }
+    .animate-fadeup.in-view { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .mds-contact-channels { grid-template-columns: 1fr; }
+      .mds-atelier-card { grid-template-columns: 1fr; }
+      .mds-atelier-map { border-left: none; border-top: 1px solid var(--border); }
+    }
+    @media (max-width: 600px) {
+      .mds-devis-banner { flex-direction: column; align-items: flex-start; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" aria-label="Navigation principale">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="logo logo-mds" aria-label="MDS — Métallier Design Service — Accueil">
+          <span class="logo-mds-main">MDS<span>.</span></span>
+          <span class="logo-mds-sub">Métallier Design Service</span>
+        </a>
+        <div class="france-badge" aria-label="Fabriqué en France">
+          <div class="france-flag" aria-hidden="true">
+            <span class="f-blue"></span><span class="f-white"></span><span class="f-red"></span>
+          </div>
+          Fabriqué en France
+        </div>
+      </div>
+      <button class="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-links" role="list">
+        <li class="nav-item"><a href="garde-corps.html">Garde-corps</a></li>
+        <li class="nav-item"><a href="portails.html">Portails</a></li>
+        <li class="nav-item"><a href="escaliers.html">Escaliers</a></li>
+        <li class="nav-item"><a href="verrieres.html">Verrières</a></li>
+        <li class="nav-item"><a href="atelier.html">L'atelier</a></li>
+        <li class="nav-item"><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="devis.html" class="nav-cta btn-outline">Devis sur plan</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+  <!-- BREADCRUMB -->
+  <nav class="mds-breadcrumb" aria-label="Fil d'Ariane">
+    <div class="mds-breadcrumb-inner">
+      <ol>
+        <li><a href="index.html">Accueil</a></li>
+        <li class="mds-breadcrumb-sep" aria-hidden="true">›</li>
+        <li aria-current="page">Contact</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="mds-contact-hero" aria-labelledby="ch-title">
+    <div class="mds-contact-hero-inner animate-fadeup">
+      <span class="section-label">CONTACT</span>
+      <h1 id="ch-title">Contactez <span class="accent">MDS</span></h1>
+      <p class="mds-contact-hero-sub">
+        Devis gratuit sous 48h ouvrées, RDV technique sur site possible en Loire et Auvergne-Rhône-Alpes.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 FAÇONS DE NOUS JOINDRE -->
+  <section class="mds-section" aria-labelledby="channels-title">
+    <div class="mds-section-inner">
+      <header class="mds-section-header animate-fadeup">
+        <span class="section-label">PLUSIEURS CANAUX</span>
+        <h2 id="channels-title">3 façons de nous joindre</h2>
+        <p>Choisissez le canal qui vous convient : on vous répond toujours dans la journée.</p>
+      </header>
+
+      <div class="mds-contact-channels">
+
+        <a class="mds-channel-card animate-fadeup" href="tel:+33643218201" aria-label="Téléphone : 06 43 21 82 01">
+          <div class="mds-channel-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <h3>Téléphone</h3>
+          <p class="mds-channel-value">06 43 21 82 01</p>
+          <p class="mds-channel-note">Du lundi au vendredi, 8h – 17h</p>
+        </a>
+
+        <a class="mds-channel-card animate-fadeup" style="--delay: 0.05s" href="mailto:contact@metallier-mds.fr" aria-label="Envoyer un email à contact@metallier-mds.fr">
+          <div class="mds-channel-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <h3>Email</h3>
+          <p class="mds-channel-value">contact@metallier-mds.fr</p>
+          <p class="mds-channel-note">Réponse sous 48h ouvrées</p>
+        </a>
+
+        <a class="mds-channel-card animate-fadeup" style="--delay: 0.10s" href="https://wa.me/33643218201?text=Bonjour%20MDS%2C%20je%20souhaite..." target="_blank" rel="noopener" aria-label="Contacter MDS via WhatsApp">
+          <div class="mds-channel-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+            </svg>
+          </div>
+          <h3>WhatsApp</h3>
+          <p class="mds-channel-value">Discuter en direct</p>
+          <p class="mds-channel-note">Photos &amp; mesures bienvenues</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULAIRE -->
+  <section class="mds-section" style="background:#1a1a1a;" aria-labelledby="form-title">
+    <div class="mds-section-inner">
+      <header class="mds-section-header animate-fadeup">
+        <span class="section-label">FORMULAIRE</span>
+        <h2 id="form-title">Formulaire de contact rapide</h2>
+        <p>Décrivez-nous votre besoin en quelques lignes, nous revenons vers vous sous 48h ouvrées.</p>
+      </header>
+
+      <div class="mds-form-wrapper animate-fadeup">
+        <form class="contact-form" id="mds-contact-form" novalidate>
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off"
+                 style="position:absolute;left:-9999px" aria-hidden="true">
+
+          <div class="form-row form-row--2col">
+            <div class="form-group">
+              <label for="f-name">Nom *</label>
+              <input type="text" id="f-name" name="name" autocomplete="name" placeholder="Jean Dupont" required aria-required="true">
+            </div>
+            <div class="form-group">
+              <label for="f-company">Société</label>
+              <input type="text" id="f-company" name="company" autocomplete="organization" placeholder="Entreprise (facultatif)">
+            </div>
+          </div>
+
+          <div class="form-row form-row--2col">
+            <div class="form-group">
+              <label for="f-email">Email *</label>
+              <input type="email" id="f-email" name="email" autocomplete="email" placeholder="vous@exemple.fr" required aria-required="true">
+            </div>
+            <div class="form-group">
+              <label for="f-phone">Téléphone</label>
+              <input type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="06 00 00 00 00">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="f-project">Type de projet</label>
+            <select id="f-project" name="project">
+              <option value="" disabled selected>Sélectionner un projet</option>
+              <option value="garde-corps">Garde-corps</option>
+              <option value="portail">Portail</option>
+              <option value="escalier">Escalier</option>
+              <option value="verriere">Verrière</option>
+              <option value="autre">Autre métallerie</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="f-message">Message *</label>
+            <textarea id="f-message" name="message" rows="5" placeholder="Décrivez votre projet, vos dimensions approximatives, le délai souhaité..." required aria-required="true"></textarea>
+          </div>
+
+          <div class="form-footer">
+            <p class="form-legal">* Champs obligatoires</p>
+            <button type="submit" class="btn-primary">Envoyer ma demande</button>
+          </div>
+        </form>
+
+        <div class="form-success-msg" aria-live="polite" hidden>
+          <div class="success-icon" aria-hidden="true">✓</div>
+          <h3>Demande envoyée</h3>
+          <p>Merci, nous vous répondrons sous 48h ouvrées.</p>
+        </div>
+
+        <p class="mds-form-rgpd">
+          Vos données sont utilisées uniquement pour vous répondre.
+          Voir notre <a href="confidentialite.html">politique de confidentialité</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTRE ATELIER -->
+  <section class="mds-section" aria-labelledby="atelier-title">
+    <div class="mds-section-inner">
+      <header class="mds-section-header animate-fadeup">
+        <span class="section-label">L'ATELIER</span>
+        <h2 id="atelier-title">Notre atelier</h2>
+        <p>Visite sur rendez-vous uniquement — passez nous voir pour discuter de votre projet autour d'un café.</p>
+      </header>
+
+      <div class="mds-atelier-card animate-fadeup">
+        <div class="mds-atelier-info">
+          <h3>SARL Metallier Design Service</h3>
+          <p><strong>Adresse :</strong><br>8 Rue Édouard Martel<br>42000 Saint-Étienne</p>
+          <p style="margin-top:1rem;"><strong>Horaires :</strong><br>Lundi à vendredi, 8h – 17h<br>Fermé samedi et dimanche</p>
+          <p style="margin-top:1rem;"><strong>Téléphone :</strong> <a href="tel:+33643218201" style="color:var(--accent);text-decoration:none;">06 43 21 82 01</a></p>
+          <span class="mds-atelier-tag">Visite sur RDV uniquement</span>
+        </div>
+        <div class="mds-atelier-map" aria-label="Localisation de l'atelier">
+          <div>
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <p style="margin-top:0.8rem;">Carte interactive<br><span style="opacity:0.6;font-size:0.75rem;">À activer après mise en ligne du domaine</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDEAU DEVIS -->
+  <section class="mds-section" style="background:#1a1a1a; padding-top: 2rem; padding-bottom: 4rem;" aria-labelledby="devis-banner-title">
+    <div class="mds-section-inner">
+      <div class="mds-devis-banner animate-fadeup">
+        <div class="mds-devis-banner-text">
+          <h3 id="devis-banner-title">Vous préférez envoyer un plan ?</h3>
+          <p>Pour les projets sur plan (DWG, DXF, PDF), utilisez notre formulaire devis avec upload de fichier — jusqu'à 10 Mo.</p>
+        </div>
+        <a href="devis.html" class="btn-primary">Demander un devis sur plan →</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo logo-mds" aria-label="MDS — Retour à l'accueil">
+          <span class="logo-mds-main">MDS<span>.</span></span>
+          <span class="logo-mds-sub">Métallier Design Service</span>
+        </a>
+        <p class="footer-tagline">Atelier français · Garde-corps · Portails · Escaliers · Verrières</p>
+      </div>
+      <nav class="footer-nav" aria-label="Activités">
+        <h4 style="font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;">Activités</h4>
+        <ul role="list">
+          <li><a href="garde-corps.html">Garde-corps</a></li>
+          <li><a href="portails.html">Portails</a></li>
+          <li><a href="escaliers.html">Escaliers</a></li>
+          <li><a href="verrieres.html">Verrières</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav" aria-label="L'atelier">
+        <h4 style="font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;">L'atelier</h4>
+        <ul role="list">
+          <li><a href="atelier.html">Qui sommes-nous</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="devis.html">Devis sur plan</a></li>
+        </ul>
+      </nav>
+      <address class="footer-contact">
+        <h4 style="font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;font-style:normal;">Contact</h4>
+        <p><a href="tel:+33643218201">06 43 21 82 01</a></p>
+        <p><a href="mailto:contact@metallier-mds.fr">contact@metallier-mds.fr</a></p>
+        <p>8 Rue Édouard Martel<br>42000 Saint-Étienne</p>
+      </address>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="footer-year">2026</span> SARL Metallier Design Service — Tous droits réservés</p>
+      <div class="footer-legal-links">
+        <a href="cgv.html">CGV</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+      </div>
+      <p class="footer-legal-line">SARL METALLIER DESIGN SERVICE - M.D.S. · Capital 5 000 € · RCS Saint-Étienne 844 258 178 · TVA FR77844258178</p>
+      <a href="https://metal-pliage.fr" target="_blank" rel="noopener" class="mds-footer-bottom-link" style="display:inline-block;margin-top:0.8rem;font-size:0.78rem;color:var(--text-muted);text-decoration:none;opacity:0.8;">
+        Voir aussi notre site e-commerce <strong style="color:var(--text-secondary);font-weight:600;">metal-pliage.fr</strong> (couvertines & pliage acier)
+      </a>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP STICKY -->
+  <a id="whatsapp-sticky" href="https://wa.me/33643218201?text=Bonjour%20MDS%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener" aria-label="Contacter MDS sur WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+    </svg>
+    <span class="whatsapp-label">WhatsApp</span>
+  </a>
+
+  <script>
+    (function(){
+      var y = document.getElementById('footer-year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+
+    // NAV : hamburger + scrolled
+    (function(){
+      var nav = document.getElementById('navbar');
+      var burger = document.querySelector('.nav-hamburger');
+      var links = document.getElementById('nav-links');
+      if (burger && nav) {
+        burger.addEventListener('click', function(){
+          var open = nav.classList.toggle('nav-open');
+          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+      if (links) {
+        links.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click', function(){
+            nav.classList.remove('nav-open');
+            if (burger) burger.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+      var onScroll = function(){
+        if (window.scrollY > 30) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // FADE-UP
+    (function(){
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.animate-fadeup').forEach(function(el){ el.classList.add('in-view'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.animate-fadeup').forEach(function(el){ io.observe(el); });
+    })();
+
+    // CONTACT FORM submit (AJAX vers Render)
+    (function(){
+      var API_BASE = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+        ? ''
+        : 'https://metal-pliage-api.onrender.com';
+
+      var form = document.getElementById('mds-contact-form');
+      var successMsg = document.querySelector('.form-success-msg');
+      if (!form || !successMsg) return;
+
+      // Warmup Render (cold start ~30s)
+      if (API_BASE) {
+        fetch(API_BASE + '/api/health', { method: 'GET', mode: 'cors' }).catch(function(){});
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        // Honeypot anti-spam
+        var honey = form.querySelector('input[name="_honey"]');
+        if (honey && honey.value) return;
+
+        // Validation client
+        var required = form.querySelectorAll('[required]');
+        var valid = true;
+        required.forEach(function(field){
+          field.style.borderColor = '';
+          if (!field.value.trim()) {
+            field.style.borderColor = '#c0392b';
+            valid = false;
+          }
+        });
+        if (!valid) return;
+
+        var btn = form.querySelector('button[type="submit"]');
+        var originalText = btn.textContent;
+        btn.textContent = 'Envoi en cours…';
+        btn.disabled = true;
+
+        var data = {};
+        new FormData(form).forEach(function(v, k){ data[k] = v; });
+        delete data._honey;
+        // Marqueur source MDS pour Brevo / templating côté backend
+        data.source = 'metallier-mds.fr';
+
+        fetch(API_BASE + '/api/contact-mds', {
+          method: 'POST',
+          mode: 'cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function(res){
+          if (!res.ok) {
+            return res.json().catch(function(){ return {}; }).then(function(err){
+              throw new Error(err.error || "Erreur d'envoi");
+            });
+          }
+          form.hidden = true;
+          successMsg.hidden = false;
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }).catch(function(err){
+          alert(err.message || "Erreur d'envoi du message. Réessayez ou écrivez à contact@metallier-mds.fr");
+          btn.textContent = originalText;
+          btn.disabled = false;
+        });
+      });
+
+      // Clear red border on focus
+      form.querySelectorAll('input, select, textarea').forEach(function(field){
+        field.addEventListener('focus', function(){ field.style.borderColor = ''; });
+      });
+    })();
+  </script>
+</body>
+</html>
