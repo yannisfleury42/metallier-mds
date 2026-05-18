@@ -49,7 +49,6 @@
     .footer-brand .footer-tagline { max-width: 280px; }
     @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr !important; } }
     @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr !important; } }
-    @media (max-width: 640px) { .whatsapp-label { display: none; } }
 
     .logo-mds {
       display: inline-flex; flex-direction: column; gap: 2px;
@@ -299,12 +298,9 @@
           Nous vous répondons sous <strong>48h ouvrées</strong> avec une estimation détaillée.
         </p>
 
-        <form class="contact-form" id="mds-devis-form" action="https://formsubmit.co/metallier.mds@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
+        <form class="contact-form" id="mds-devis-form" novalidate>
           <input type="text" name="_honey" tabindex="-1" autocomplete="off"
                  style="position:absolute;left:-9999px" aria-hidden="true">
-          <input type="hidden" name="_subject" value="Nouveau devis sur plan — metallier-mds.fr">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://metallier-mds.fr/devis.html?sent=1">
 
           <div class="form-row form-row--2col">
             <div class="form-group">
@@ -549,11 +545,8 @@
       var successMsg = document.querySelector('.form-success-msg');
       if (!form || !input || !dropZone || !list) return;
 
-      // Message succès si retour Formsubmit
-      if (window.location.search.indexOf('sent=1') !== -1 && successMsg) {
-        form.hidden = true;
-        successMsg.hidden = false;
-      }
+      var API = 'https://metal-pliage-api.onrender.com';
+      fetch(API + '/api/health', { method: 'GET', mode: 'cors' }).catch(function(){});
 
       var selectedFiles = [];
 
@@ -658,15 +651,30 @@
           return;
         }
 
-        // Sync selectedFiles → input natif pour Formsubmit
-        var dt = new DataTransfer();
-        selectedFiles.forEach(function(f){ dt.items.add(f); });
-        input.files = dt.files;
-
         var btn = form.querySelector('button[type="submit"]');
-        btn.textContent = 'Envoi en cours…';
-        btn.disabled = true;
-        // laisser le form soumettre normalement vers Formsubmit
+        var orig = btn.textContent;
+        btn.textContent = 'Envoi en cours…'; btn.disabled = true;
+
+        var data = {};
+        new FormData(form).forEach(function(v, k){ data[k] = v; });
+        delete data._honey;
+        data.files_note = selectedFiles.length > 0
+          ? selectedFiles.map(function(f){ return f.name + ' (' + (f.size/1024).toFixed(0) + ' Ko)'; }).join(', ')
+          : 'Aucun fichier joint';
+
+        fetch(API + '/api/contact-mds', {
+          method: 'POST', mode: 'cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function(res){
+          if (!res.ok) return res.json().then(function(e){ throw new Error(e.error); });
+          form.hidden = true;
+          successMsg.hidden = false;
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }).catch(function(err){
+          alert(err.message || "Erreur d'envoi. Écrivez à metallier.mds@gmail.com");
+          btn.textContent = orig; btn.disabled = false;
+        });
       });
 
       form.querySelectorAll('input, select, textarea').forEach(function(field){
