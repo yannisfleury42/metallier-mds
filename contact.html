@@ -359,9 +359,12 @@
       </header>
 
       <div class="mds-form-wrapper animate-fadeup">
-        <form class="contact-form" id="mds-contact-form" novalidate>
+        <form class="contact-form" id="mds-contact-form" action="https://formsubmit.co/metallier.mds@gmail.com" method="POST" novalidate>
           <input type="text" name="_honey" tabindex="-1" autocomplete="off"
                  style="position:absolute;left:-9999px" aria-hidden="true">
+          <input type="hidden" name="_subject" value="Nouveau message — metallier-mds.fr">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://metallier-mds.fr/contact.html?sent=1">
 
           <div class="form-row form-row--2col">
             <div class="form-group">
@@ -439,14 +442,13 @@
           <p style="margin-top:1rem;"><strong>Téléphone :</strong> <a href="tel:+33643218201" style="color:var(--accent);text-decoration:none;">06 43 21 82 01</a></p>
           <span class="mds-atelier-tag">Visite sur RDV uniquement</span>
         </div>
-        <div class="mds-atelier-map" aria-label="Localisation de l'atelier">
-          <div>
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-            <p style="margin-top:0.8rem;">Carte interactive<br><span style="opacity:0.6;font-size:0.75rem;">À activer après mise en ligne du domaine</span></p>
-          </div>
+        <div class="mds-atelier-map" aria-label="Localisation de l'atelier" style="padding:0;overflow:hidden;">
+          <iframe
+            src="https://maps.google.com/maps?q=8+Rue+%C3%89douard+Martel+42000+Saint-%C3%89tienne&output=embed&hl=fr&z=15"
+            width="100%" height="100%" style="border:0;min-height:280px;display:block;"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Localisation atelier MDS — 8 Rue Édouard Martel, Saint-Étienne">
+          </iframe>
         </div>
       </div>
     </div>
@@ -566,73 +568,35 @@
       document.querySelectorAll('.animate-fadeup').forEach(function(el){ io.observe(el); });
     })();
 
-    // CONTACT FORM submit (AJAX vers Render)
+    // CONTACT FORM — validation + message succès si retour Formsubmit
     (function(){
-      var API_BASE = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
-        ? ''
-        : 'https://metal-pliage-api.onrender.com';
-
       var form = document.getElementById('mds-contact-form');
       var successMsg = document.querySelector('.form-success-msg');
-      if (!form || !successMsg) return;
+      if (!form) return;
 
-      // Warmup Render (cold start ~30s)
-      if (API_BASE) {
-        fetch(API_BASE + '/api/health', { method: 'GET', mode: 'cors' }).catch(function(){});
+      // Affiche le message succès si redirection avec ?sent=1
+      if (window.location.search.indexOf('sent=1') !== -1 && successMsg) {
+        form.hidden = true;
+        successMsg.hidden = false;
       }
 
       form.addEventListener('submit', function(e){
-        e.preventDefault();
-
-        // Honeypot anti-spam
         var honey = form.querySelector('input[name="_honey"]');
-        if (honey && honey.value) return;
+        if (honey && honey.value) { e.preventDefault(); return; }
 
-        // Validation client
         var required = form.querySelectorAll('[required]');
         var valid = true;
         required.forEach(function(field){
           field.style.borderColor = '';
-          if (!field.value.trim()) {
-            field.style.borderColor = '#c0392b';
-            valid = false;
-          }
+          if (!field.value.trim()) { field.style.borderColor = '#c0392b'; valid = false; }
         });
-        if (!valid) return;
+        if (!valid) { e.preventDefault(); return; }
 
         var btn = form.querySelector('button[type="submit"]');
-        var originalText = btn.textContent;
         btn.textContent = 'Envoi en cours…';
         btn.disabled = true;
-
-        var data = {};
-        new FormData(form).forEach(function(v, k){ data[k] = v; });
-        delete data._honey;
-        // Marqueur source MDS pour Brevo / templating côté backend
-        data.source = 'metallier-mds.fr';
-
-        fetch(API_BASE + '/api/contact-mds', {
-          method: 'POST',
-          mode: 'cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        }).then(function(res){
-          if (!res.ok) {
-            return res.json().catch(function(){ return {}; }).then(function(err){
-              throw new Error(err.error || "Erreur d'envoi");
-            });
-          }
-          form.hidden = true;
-          successMsg.hidden = false;
-          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }).catch(function(err){
-          alert(err.message || "Erreur d'envoi du message. Réessayez ou écrivez à contact@metallier-mds.fr");
-          btn.textContent = originalText;
-          btn.disabled = false;
-        });
       });
 
-      // Clear red border on focus
       form.querySelectorAll('input, select, textarea').forEach(function(field){
         field.addEventListener('focus', function(){ field.style.borderColor = ''; });
       });
