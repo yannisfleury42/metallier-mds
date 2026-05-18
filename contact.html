@@ -359,12 +359,9 @@
       </header>
 
       <div class="mds-form-wrapper animate-fadeup">
-        <form class="contact-form" id="mds-contact-form" action="https://formsubmit.co/metallier.mds@gmail.com" method="POST" novalidate>
+        <form class="contact-form" id="mds-contact-form" novalidate>
           <input type="text" name="_honey" tabindex="-1" autocomplete="off"
                  style="position:absolute;left:-9999px" aria-hidden="true">
-          <input type="hidden" name="_subject" value="Nouveau message — metallier-mds.fr">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://metallier-mds.fr/contact.html?sent=1">
 
           <div class="form-row form-row--2col">
             <div class="form-group">
@@ -568,21 +565,19 @@
       document.querySelectorAll('.animate-fadeup').forEach(function(el){ io.observe(el); });
     })();
 
-    // CONTACT FORM — validation + message succès si retour Formsubmit
+    // CONTACT FORM
     (function(){
+      var API = 'https://metal-pliage-api.onrender.com';
       var form = document.getElementById('mds-contact-form');
       var successMsg = document.querySelector('.form-success-msg');
-      if (!form) return;
+      if (!form || !successMsg) return;
 
-      // Affiche le message succès si redirection avec ?sent=1
-      if (window.location.search.indexOf('sent=1') !== -1 && successMsg) {
-        form.hidden = true;
-        successMsg.hidden = false;
-      }
+      fetch(API + '/api/health', { method: 'GET', mode: 'cors' }).catch(function(){});
 
       form.addEventListener('submit', function(e){
+        e.preventDefault();
         var honey = form.querySelector('input[name="_honey"]');
-        if (honey && honey.value) { e.preventDefault(); return; }
+        if (honey && honey.value) return;
 
         var required = form.querySelectorAll('[required]');
         var valid = true;
@@ -590,11 +585,29 @@
           field.style.borderColor = '';
           if (!field.value.trim()) { field.style.borderColor = '#c0392b'; valid = false; }
         });
-        if (!valid) { e.preventDefault(); return; }
+        if (!valid) return;
 
         var btn = form.querySelector('button[type="submit"]');
-        btn.textContent = 'Envoi en cours…';
-        btn.disabled = true;
+        var orig = btn.textContent;
+        btn.textContent = 'Envoi en cours…'; btn.disabled = true;
+
+        var data = {};
+        new FormData(form).forEach(function(v, k){ data[k] = v; });
+        delete data._honey;
+
+        fetch(API + '/api/contact-mds', {
+          method: 'POST', mode: 'cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function(res){
+          if (!res.ok) return res.json().then(function(e){ throw new Error(e.error); });
+          form.hidden = true;
+          successMsg.hidden = false;
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }).catch(function(err){
+          alert(err.message || "Erreur d'envoi. Écrivez à metallier.mds@gmail.com");
+          btn.textContent = orig; btn.disabled = false;
+        });
       });
 
       form.querySelectorAll('input, select, textarea').forEach(function(field){
