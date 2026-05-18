@@ -637,27 +637,23 @@
       });
 
       form.addEventListener('submit', function(e){
-        e.preventDefault();
-
         // Honeypot anti-spam
         var honey = form.querySelector('input[name="_honey"]');
-        if (honey && honey.value) return;
+        if (honey && honey.value) { e.preventDefault(); return; }
 
         // Validation champs
         var required = form.querySelectorAll('[required]');
         var valid = true;
         required.forEach(function(field){
           field.style.borderColor = '';
-          if (!field.value.trim()) {
-            field.style.borderColor = '#c0392b';
-            valid = false;
-          }
+          if (!field.value.trim()) { field.style.borderColor = '#c0392b'; valid = false; }
         });
-        if (!valid) return;
+        if (!valid) { e.preventDefault(); return; }
 
         // Validation taille fichiers
         var total = selectedFiles.reduce(function(a, f){ return a + f.size; }, 0);
         if (total > MAX_TOTAL) {
+          e.preventDefault();
           alert('Le total des fichiers dépasse 10 Mo. Retirez quelques pièces ou compressez-les.');
           return;
         }
@@ -670,6 +666,7 @@
         var btn = form.querySelector('button[type="submit"]');
         btn.textContent = 'Envoi en cours…';
         btn.disabled = true;
+        // laisser le form soumettre normalement vers Formsubmit
       });
 
       form.querySelectorAll('input, select, textarea').forEach(function(field){
