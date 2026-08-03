@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /devis.html
 
 Sitemap: https://metallier-mds.fr/sitemap.xml
