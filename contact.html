@@ -9,7 +9,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Contact &amp; devis — MDS Métallier Saint-Étienne</title>
+  <title>Contact et devis — MDS Métallier Saint-Étienne</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:image" content="https://metallier-mds.fr/og-cover.jpg">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mds-mobile-bar.css">
 
   <script type="application/ld+json">
   {
@@ -37,6 +38,7 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://metallier-mds.fr/#organisation",
     "name": "MDS - Metallier Design Service",
     "image": "https://metallier-mds.fr/og-cover.jpg",
     "telephone": "+33643218201",
@@ -317,7 +319,7 @@
         <p>Choisissez le canal qui vous convient : on vous répond toujours dans la journée.</p>
       </header>
 
-      <div class="mds-contact-channels" style="grid-template-columns: repeat(3,1fr);">
+      <div class="mds-contact-channels">
 
         <a class="mds-channel-card animate-fadeup" href="tel:+33643218201" aria-label="Téléphone : 06 43 21 82 01">
           <div class="mds-channel-icon" aria-hidden="true">
@@ -623,5 +625,14 @@
       });
     })();
   </script>
+
+<!-- Barre d'action mobile -->
+<div class="mds-mobile-bar">
+  <a href="tel:+33643218201" class="mmb-call">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Appeler
+  </a>
+  <a href="devis.html" class="mmb-devis">Devis gratuit</a>
+</div>
 </body>
 </html>

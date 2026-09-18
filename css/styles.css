@@ -1576,12 +1576,21 @@ p { color: var(--text-secondary); }
   /* Nav */
   .nav-hamburger { display: flex; }
   .nav-cta { display: none; }
+  /* Le badge "Fabrique en France" occupait 163 px dans .nav-left : le bouton
+     burger etait pousse a 410 px, hors du viewport de 375 px, et le menu
+     devenait totalement inaccessible sur telephone. */
+  .france-badge { display: none; }
 
   #nav-links {
     position: fixed;
     top: var(--nav-h);
     left: 0;
     right: 0;
+    /* Sans ces trois lignes, le panneau restait centre dans la cellule de la
+       barre : 193 px de large au milieu de l'ecran, avec la page visible autour. */
+    width: 100%;
+    margin: 0;
+    justify-self: stretch;
     flex-direction: column;
     gap: 0;
     background: #050505;

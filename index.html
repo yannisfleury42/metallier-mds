@@ -28,8 +28,10 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "MDS - Metallier Design Service",
+    "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+    "@id": "https://metallier-mds.fr/#organisation",
+    "name": "METALLIER DESIGN SERVICE - M.D.S.",
+    "alternateName": "MDS",
     "description": "Atelier de métallerie sur mesure à Saint-Étienne. Garde-corps, portails, escaliers, verrières pour particuliers et professionnels.",
     "url": "https://metallier-mds.fr",
     "telephone": "+33643218201",
@@ -42,10 +44,37 @@
       "addressLocality": "Saint-Étienne",
       "addressCountry": "FR"
     },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "6" }
+    "sameAs": [
+      "https://g.page/r/CXenY9EcyzorEBM",
+      "https://metal-pliage.fr"
+    ],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "6" },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "David Breysse" },
+        "datePublished": "2025-10-01",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "De supers professionnels. Yannis et Dimitri sont intervenus sur un chantier compliqué. Ils ont été ingénieux et réactifs. Ils ont respecté les délais. Travail très bien réalisé et soigné."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Jessica Di Prospero" },
+        "datePublished": "2022-12-01",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Seconde fois que MDS intervient chez nous et le travail est toujours soigné et le rendu au top. Merci."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lila Demarcq" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Très contente de travailler avec MDS ! Rendu propre et solide !"
+      }
+    ]
   }
   </script>
 
+  <link rel="stylesheet" href="css/mds-mobile-bar.css">
   <style>
   /* ═══════════════════════════════════════════
      RESET & BASE
@@ -103,7 +132,7 @@
   }
   .logo .logo-accent { color: var(--accent); font-weight: 900; }
   .logo .logo-tagline {
-    font-size: .48rem; font-weight: 600; letter-spacing: .18em;
+    font-size: .6rem; font-weight: 600; letter-spacing: .18em;
     text-transform: uppercase; color: rgba(255,255,255,.35);
     align-self: center; margin-left: 6px;
     line-height: 1.4; display: flex; flex-direction: column;
@@ -120,6 +149,22 @@
     transition: color .2s, background .2s;
   }
   .nav-links a:hover { color: #fff; background: rgba(255,255,255,.07); }
+
+  .skip-link {
+    position: absolute; top: -100px; left: 1rem;
+    background: var(--accent); color: #fff;
+    padding: .7rem 1.2rem; border-radius: 2px;
+    z-index: 10000; font-weight: 700; font-size: .9rem;
+    transition: top .2s;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  .nav-tel {
+    font-size: .8rem; font-weight: 700; letter-spacing: .02em;
+    color: #fff; padding: .5rem .8rem; border-radius: 2px;
+    white-space: nowrap; transition: color .2s;
+  }
+  .nav-tel:hover { color: var(--accent); }
 
   .nav-cta {
     display: inline-flex; align-items: center; gap: 6px;
@@ -138,10 +183,9 @@
   }
   .burger span {
     display: block; width: 22px; height: 2px;
-    background: var(--texte); border-radius: 2px;
+    background: #fff; border-radius: 2px;
     transition: background .3s, transform .3s, opacity .3s;
   }
-  .nav.scrolled .burger span { background: #fff; }
   .nav.open .burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav.open .burger span:nth-child(2) { opacity: 0; }
   .nav.open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -151,12 +195,13 @@
     display: none; position: fixed;
     top: var(--nav-h); left: 0; right: 0; bottom: 0;
     background: var(--noir); z-index: 999;
-    flex-direction: column; align-items: center; justify-content: center;
-    gap: 1.5rem;
+    flex-direction: column; align-items: center; justify-content: flex-start;
+    gap: 1.1rem; padding: 2.5rem 1.5rem; overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .mobile-menu.open { display: flex; }
   .mobile-menu a {
-    font-size: 1.5rem; font-weight: 700; color: #fff; letter-spacing: -.01em;
+    font-size: 1.2rem; font-weight: 700; color: #fff; letter-spacing: -.01em;
     transition: color .2s;
   }
   .mobile-menu a:hover { color: var(--accent); }
@@ -169,29 +214,38 @@
   /* ═══════════════════════════════════════════
      HERO V1 — photo plein écran, texte en bas
   ═══════════════════════════════════════════ */
+  /* HERO — bandeau pleine largeur.
+     Hauteur equilibree : environ 65 % de la photo est visible.
+     Reperes de la photo : arbres 0-22%, mur 22-33%, OUVRAGE 33-58%,
+     terrasse 58-68%, piscine 68-95%. Le cadrage vertical est cale a 46%
+     pour que les trois ouvertures acier soient au centre du champ. */
   .hero {
     position: relative;
-    height: 100vh; min-height: 620px;
-    display: flex; align-items: flex-start;
+    height: clamp(560px, 78vh, 860px);
+    display: flex; align-items: flex-end;
+    background: var(--noir);
     overflow: hidden;
   }
-  .hero-photo {
-    position: absolute; inset: 0; z-index: 0;
-  }
+  .hero-photo { position: absolute; inset: 0; z-index: 0; }
   .hero-photo img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: 50% 46%;
+    display: block;
   }
   .hero-overlay {
+    display: block;
     position: absolute; inset: 0; z-index: 1;
     background:
-      linear-gradient(100deg, rgba(10,10,10,.87) 0%, rgba(10,10,10,.58) 42%, rgba(10,10,10,.06) 100%),
-      linear-gradient(to top, rgba(10,10,10,.55) 0%, transparent 38%);
+      linear-gradient(to top, rgba(10,10,10,.90) 0%, rgba(10,10,10,.62) 26%,
+                              rgba(10,10,10,.12) 52%, transparent 72%),
+      linear-gradient(to bottom, rgba(10,10,10,.58) 0%, transparent 20%);
   }
   .hero-wrap {
     position: relative; z-index: 2;
-    width: 100%;
-    padding: calc(var(--nav-h) + 5rem) var(--pad) 5rem;
+    width: 100%; max-width: var(--max); margin: 0 auto;
+    padding: 0 var(--pad) 3rem;
   }
+  .hero-text { max-width: 640px; }
   .hero-eyebrow {
     font-size: .65rem; font-weight: 700; letter-spacing: .22em;
     text-transform: uppercase; color: rgba(255,255,255,.45);
@@ -200,7 +254,7 @@
   .hero h1 {
     font-size: clamp(2rem, 3.8vw, 3.4rem);
     font-weight: 800; line-height: 1.06; letter-spacing: -.03em;
-    color: #fff; margin: 0 0 1.2rem; max-width: 480px;
+    color: #fff; margin: 0 0 1.2rem;
   }
   .hero h1 em { font-style: normal; color: var(--accent); }
   .hero-desc {
@@ -319,7 +373,7 @@
     box-shadow: 0 20px 50px rgba(0,0,0,.1);
   }
   .gamme-photo {
-    width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #ddd;
+    width: 100%; aspect-ratio: 4/5; overflow: hidden; background: #ddd;
   }
   .gamme-photo img {
     width: 100%; height: 100%; object-fit: cover;
@@ -362,6 +416,7 @@
     gap: .9rem;
   }
   .real-cell { overflow: hidden; background: #ddd; position: relative; }
+  @media(max-width:900px){ .real-cell { aspect-ratio: 4/5; } }
   .real-cell img {
     width: 100%; height: 100%; object-fit: cover;
     transition: transform .55s var(--ease);
@@ -441,7 +496,7 @@
   .avis-author { font-size: .82rem; font-weight: 700; color: #fff; }
   .avis-author span {
     display: block; font-weight: 400;
-    color: rgba(255,255,255,.3); font-size: .73rem; margin-top: 2px;
+    color: rgba(255,255,255,.55); font-size: .73rem; margin-top: 2px;
   }
   .avis-link { text-align: center; }
   .avis-link a {
@@ -512,10 +567,10 @@
     font-size: 1.2rem; font-weight: 900; color: #fff; display: block; margin-bottom: 1rem;
   }
   .footer-logo em { font-style: normal; color: var(--accent); }
-  .footer-tagline { font-size: .84rem; color: rgba(255,255,255,.35); line-height: 1.6; max-width: 260px; }
+  .footer-tagline { font-size: .84rem; color: rgba(255,255,255,.55); line-height: 1.6; max-width: 260px; }
   .footer-col h4 {
     font-size: .65rem; font-weight: 700; letter-spacing: .22em;
-    text-transform: uppercase; color: rgba(255,255,255,.3);
+    text-transform: uppercase; color: rgba(255,255,255,.58);
     margin-bottom: 1.2rem;
   }
   .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
@@ -530,11 +585,11 @@
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 1rem;
   }
-  .footer-bottom p { font-size: .75rem; color: rgba(255,255,255,.25); }
+  .footer-bottom p { font-size: .75rem; color: rgba(255,255,255,.55); }
   .footer-legal {
     display: flex; gap: 1.5rem; list-style: none;
   }
-  .footer-legal a { font-size: .75rem; color: rgba(255,255,255,.3); transition: color .2s; }
+  .footer-legal a { font-size: .75rem; color: rgba(255,255,255,.62); transition: color .2s; }
   .footer-legal a:hover { color: rgba(255,255,255,.6); }
 
 
@@ -557,7 +612,7 @@
   /* ═══════════════════════════════════════════
      PROCESS — Comment ça se passe (4 étapes)
   ═══════════════════════════════════════════ */
-  .process { background: var(--white); padding: 7rem 0; }
+  .process { background: var(--cream); padding: 5.5rem 0; }
   .process-head { margin-bottom: 3.5rem; max-width: 640px; }
   .process-head p { font-size: .97rem; color: var(--texte2); line-height: 1.7; margin-top: 1rem; }
   .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.4rem; }
@@ -584,16 +639,22 @@
   }
   @media(max-width:900px){
     .hero-wrap, .artisans-grid, .zone-grid {
-      grid-template-columns: 1fr; gap: 3rem;
+      grid-template-columns: 1fr; gap: 2.5rem;
     }
-    .hero-photos {
-      grid-template-rows: 220px 150px;
-    }
+    /* Mobile : on ARRETE le plein-cadre. Une photo paysage dans un bloc haut
+       et etroit serait recadree en largeur (on ne verrait qu'une ouverture sur
+       trois). On la sort en bandeau 16/10 — ratio proche du natif 1,50, donc
+       94 % de la photo visible — et le texte passe dessous, sur le noir. */
+    .hero { height: auto; min-height: 0; display: block; padding: calc(var(--nav-h) + 1.4rem) 0 0; }
+    .hero-photo { position: relative; inset: auto; width: 100%; aspect-ratio: 16 / 10; }
+    .hero-overlay { display: none; }
+    .hero-wrap { padding: 2.2rem var(--pad) 2.5rem; }
+    .hero-text { max-width: none; }
     .reals-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: auto; }
     .gammes-head, .reals-head { flex-direction: column; align-items: flex-start; }
     .gammes-head p, .reals-head { text-align: left; }
     .avis-grid { grid-template-columns: 1fr; }
-    .nav-links, .nav-cta { display: none; }
+    .nav-links, .nav-cta, .nav-tel { display: none; }
     .burger { display: flex; }
   }
   @media(max-width:600px){
@@ -603,7 +664,15 @@
     .reals-grid { grid-template-columns: 1fr; }
     .artisans-valeurs { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .hero-trust { flex-wrap: wrap; gap: 1.2rem; }
+  }
+
+  /* Ecrans tactiles : pas de :hover, on montre les legendes */
+  @media(hover:none){
+    .real-caption { opacity: 1; }
+  }
+  /* Focus clavier visible (la home ne charge pas styles.css) */
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--accent); outline-offset: 3px;
   }
 
   /* Animations scroll */
@@ -614,6 +683,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
 <!-- ═══════ NAVIGATION ═══════ -->
 <nav class="nav" id="nav">
   <div class="nav-wrap">
@@ -623,10 +694,11 @@
     </a>
     <ul class="nav-links">
       <li><a href="#gammes">Gammes</a></li>
-      <li><a href="#realisations">Réalisations</a></li>
-      <li><a href="#artisans">L'atelier</a></li>
+      <li><a href="realisations.html">Réalisations</a></li>
+      <li><a href="atelier.html">L'atelier</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="https://metal-pliage.fr" target="_blank" rel="noopener" class="nav-cta" style="margin-right:.5rem;border:1px solid var(--accent);color:var(--accent);background:transparent;">Couvertines &amp; pliage&nbsp;↗</a>
+    <a href="tel:+33643218201" class="nav-tel">06 43 21 82 01</a>
     <a href="devis.html" class="nav-cta">Devis gratuit</a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -637,21 +709,29 @@
 <!-- Menu mobile -->
 <div class="mobile-menu" id="mobile-menu">
   <a href="#gammes"      onclick="closeMobile()">Gammes</a>
-  <a href="#realisations" onclick="closeMobile()">Réalisations</a>
-  <a href="#artisans"    onclick="closeMobile()">L'atelier</a>
+  <a href="garde-corps.html">Garde-corps</a>
+  <a href="portails.html">Portails</a>
+  <a href="escaliers.html">Escaliers</a>
+  <a href="verrieres.html">Verrières</a>
+  <a href="realisations.html">Réalisations</a>
+  <a href="atelier.html">L'atelier</a>
+  <a href="contact.html">Contact</a>
   <a href="https://metal-pliage.fr" target="_blank" rel="noopener" style="color:var(--accent);border:1px solid var(--accent);padding:.6rem 1.6rem;border-radius:2px;">Couvertines &amp; pliage ↗</a>
   <a href="devis.html"  class="mob-cta" onclick="closeMobile()">Devis gratuit</a>
 </div>
 
 <!-- ═══════ HERO V1 — photo plein écran ═══════ -->
+<main id="main-content">
 <section class="hero">
   <div class="hero-photo">
-    <img src="assets/photos-reelles/porte-fer-forge-pierre.webp"
-         alt="Porte vitrée en fer forgé sur mesure posée par MDS sur une bâtisse en pierre — Loire" loading="eager" fetchpriority="high">
+    <img src="assets/photos-chantiers/verrieres-coulissantes-pierre-piscine.webp"
+         alt="Verrières coulissantes en acier noir, rétractables, encastrées dans un mur de pierre — pool house réalisé par MDS"
+         width="1600" height="1066" loading="eager" fetchpriority="high" decoding="async">
   </div>
   <div class="hero-overlay"></div>
 
   <div class="hero-wrap">
+   <div class="hero-text">
     <span class="hero-eyebrow">Artisans métalliers · Saint-Étienne · Depuis 2018</span>
     <h1>Garde-corps, portails,<br>escaliers &amp; <em>verrières</em></h1>
     <p class="hero-desc">
@@ -697,6 +777,7 @@
       <strong>4,7 / 5</strong>
       <span>sur Google · 6 avis</span>
     </div>
+   </div>
   </div>
 </section>
 
@@ -760,7 +841,7 @@
 
       <a href="escaliers.html" class="gamme-card fade-up" style="--d:.14s">
         <div class="gamme-photo">
-          <img src="assets/photos-reelles/escalier-limon-bois.webp" alt="Escalier intérieur limon central acier et marches bois par MDS" loading="lazy">
+          <img src="assets/photos-reelles/escalier-suspendu-bois-acier.webp" alt="Escalier suspendu à limon central acier et marches en bois massif, garde-corps acier à câbles — réalisation MDS" loading="lazy" width="637" height="797" decoding="async">
         </div>
         <div class="gamme-body">
           <span class="gamme-num">03</span>
@@ -772,7 +853,7 @@
 
       <a href="verrieres.html" class="gamme-card fade-up" style="--d:.21s">
         <div class="gamme-photo">
-          <img src="assets/photos-reelles/verriere-acier-fauteuil.webp" alt="Verrière et porte vitrée acier dans une pièce en pierre par MDS" loading="lazy">
+          <img src="assets/photos-chantiers/verriere-noir-salle-de-bain-bois.webp" alt="Verrière atelier en acier noir mat au-dessus d'un meuble vasque en bois, réalisée par MDS" loading="lazy" width="756" height="1008" decoding="async">
         </div>
         <div class="gamme-body">
           <span class="gamme-num">04</span>
@@ -831,16 +912,16 @@
     </div>
     <div class="reals-grid">
       <div class="real-cell fade-up">
-        <img src="assets/photos-reelles/porte-fer-forge-pierre.webp" alt="Porte vitrée fer forgé sur bâtisse en pierre" loading="lazy">
-        <div class="real-caption">Porte vitrée en fer forgé <span>Ferronnerie d'art · 2026</span></div>
+        <img src="assets/photos-reelles/garde-corps-verre-mezzanine.webp" alt="Garde-corps en verre sur mezzanine intérieure réalisé par MDS" loading="lazy">
+        <div class="real-caption">Garde-corps verre <span>Mezzanine intérieure</span></div>
       </div>
       <div class="real-cell fade-up" style="--d:.07s">
         <img src="assets/photos-reelles/verriere-blanche-jardin.webp" alt="Double porte-verrière donnant sur jardin" loading="lazy">
         <div class="real-caption">Verrière &amp; porte vitrée <span>Rénovation · 2025</span></div>
       </div>
       <div class="real-cell fade-up" style="--d:.14s">
-        <img src="assets/photos-reelles/portail-alu-gris.webp" alt="Portail coulissant aluminium gris" loading="lazy">
-        <div class="real-caption">Portail coulissant alu <span>Loire · 2024</span></div>
+        <img src="assets/photos-chantiers/portail-fer-forge-double-battant.webp" alt="Portail en fer forgé à double battant" loading="lazy">
+        <div class="real-caption">Portail fer forgé <span>Double battant</span></div>
       </div>
       <div class="real-cell fade-up" style="--d:.07s">
         <img src="assets/photos-reelles/escalier-suspendu-bleu.webp" alt="Escalier suspendu à limon central, marches bois, mur bleu" loading="lazy">
@@ -963,6 +1044,8 @@
   </div>
 </section>
 
+</main>
+
 <!-- ═══════ FOOTER ═══════ -->
 <footer>
   <div class="section-inner">
@@ -1040,11 +1123,17 @@
     var open = nav.classList.toggle('open');
     menu.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  // tout lien du menu le referme (y compris les liens vers d'autres pages)
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ closeMobile(); });
   });
   function closeMobile(){
     nav.classList.remove('open');
     menu.classList.remove('open');
     burger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = ''; 
   }
 
   // Fade-up IntersectionObserver
@@ -1062,5 +1151,14 @@
     document.querySelectorAll('.fade-up').forEach(function(el){ el.classList.add('vis'); });
   }
 </script>
+
+<!-- Barre d'action mobile -->
+<div class="mds-mobile-bar">
+  <a href="tel:+33643218201" class="mmb-call">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Appeler
+  </a>
+  <a href="devis.html" class="mmb-devis">Devis gratuit</a>
+</div>
 </body>
 </html>

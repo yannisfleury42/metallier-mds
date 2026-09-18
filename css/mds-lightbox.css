@@ -1,0 +1,126 @@
+/* ===========================================================
+   MDS — Lightbox mutualisée
+   Utilisée par : garde-corps, portails, escaliers, verrieres,
+                  atelier, realisations
+   Point d'accroche : .mds-gallery-item et .reals-item
+   =========================================================== */
+
+.mds-gallery-item,
+.reals-item {
+  cursor: zoom-in;
+}
+.mds-gallery-item:focus-visible,
+.reals-item:focus-visible {
+  outline: 3px solid var(--accent, #E63E00);
+  outline-offset: 3px;
+}
+
+.mds-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background: rgba(8, 8, 8, .96);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility .25s;
+}
+.mds-lb[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mds-lb-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: clamp(3.5rem, 8vh, 5rem) clamp(.75rem, 5vw, 5rem) 0;
+  touch-action: pan-y;
+}
+.mds-lb-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 2px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .65);
+}
+
+/* Barre basse : légende + compteur. Jamais tronquée. */
+.mds-lb-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem clamp(.75rem, 5vw, 5rem) 1.25rem;
+}
+.mds-lb-cap {
+  font-size: .9rem;
+  line-height: 1.45;
+  color: #fff;
+  white-space: normal;
+  margin: 0;
+}
+.mds-lb-count {
+  flex-shrink: 0;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: rgba(255, 255, 255, .55);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Contrôles — 48 px partout, y compris sur mobile */
+.mds-lb-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+.mds-lb-btn:hover { background: var(--accent, #E63E00); }
+.mds-lb-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.mds-lb-close { top: 1rem; right: 1rem; }
+.mds-lb-prev  { left: clamp(.5rem, 2vw, 1.5rem);  top: 50%; transform: translateY(-50%); }
+.mds-lb-next  { right: clamp(.5rem, 2vw, 1.5rem); top: 50%; transform: translateY(-50%); }
+
+/* Mobile : on GARDE les flèches, on les descend sous l'image */
+.mds-lb-nav-mobile { display: contents; }
+
+@media (max-width: 560px) {
+  .mds-lb { grid-template-rows: 1fr auto auto; }
+  .mds-lb-nav-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 0 0 1.5rem;
+  }
+  .mds-lb-prev,
+  .mds-lb-next {
+    position: static;
+    transform: none;
+    width: 52px;
+    height: 52px;
+  }
+  .mds-lb-bar { padding-bottom: .5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mds-lb { transition: none; }
+}

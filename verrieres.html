@@ -23,6 +23,8 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:image" content="https://metallier-mds.fr/og-cover.jpg">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mds-mobile-bar.css">
+  <link rel="stylesheet" href="css/mds-lightbox.css">
 
   <script type="application/ld+json">
   {
@@ -313,7 +315,7 @@
       gap: 1rem;
     }
     .mds-gallery-item {
-      aspect-ratio: 4/3;
+      aspect-ratio: 3/4;
       border-radius: 4px;
       overflow: hidden;
       background: #1a1a1a;
@@ -485,7 +487,7 @@
         </div>
       </div>
       <div class="mds-product-hero-img animate-fadeup" style="--delay: 0.1s">
-        <img src="assets/photos-reelles/verriere-acier-fauteuil.webp" alt="Verrière et porte vitrée en acier dans une pièce en pierre, réalisées sur mesure par MDS" loading="eager" decoding="async" fetchpriority="high" width="400" height="500">
+        <img src="assets/photos-chantiers/verriere-noir-salle-de-bain-bois.webp" alt="Verrière atelier en acier noir mat au-dessus d'un meuble vasque en bois, réalisée sur mesure par MDS" loading="eager" decoding="async" fetchpriority="high" width="756" height="1008">
       </div>
     </div>
   </section>
@@ -597,8 +599,8 @@
         </div>
 
         <div class="mds-gallery-item animate-fadeup" style="--delay: 0.05s">
-          <img src="assets/photos-chantiers/verriere-noir-salle-de-bain-bois.webp" alt="Verrière acier noir style atelier en salle de bain avec suspensions raphia bohème" loading="lazy" decoding="async" width="400" height="300">
-          <div class="mds-gallery-cap">Verrière SDB — Acier noir + ambiance bohème</div>
+          <img src="assets/photos-reelles/verriere-acier-fauteuil.webp" alt="Porte vitrée à petits bois acier dans une ouverture en pierre, séparation de pièce" loading="lazy" decoding="async" width="1080" height="1350">
+          <div class="mds-gallery-cap">Porte vitrée acier — Ouverture en pierre</div>
         </div>
 
         <div class="mds-gallery-item animate-fadeup" style="--delay: 0.1s">
@@ -841,5 +843,15 @@
       document.querySelectorAll('.animate-fadeup').forEach(function(el){ io.observe(el); });
     })();
   </script>
+  <script src="js/mds-lightbox.js" defer></script>
+
+<!-- Barre d'action mobile -->
+<div class="mds-mobile-bar">
+  <a href="tel:+33643218201" class="mmb-call">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Appeler
+  </a>
+  <a href="devis.html" class="mmb-devis">Devis gratuit</a>
+</div>
 </body>
 </html>

@@ -1,0 +1,50 @@
+/* ===========================================================
+   MDS — Barre d'action collante sur mobile
+   Le CTA devis disparaissait sous 768 px sans être repris dans
+   le menu burger : plus aucun point de contact après le hero.
+   =========================================================== */
+
+.mds-mobile-bar {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9000;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(16, 16, 16, .97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.mds-mobile-bar a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 56px;
+  padding: .7rem .5rem;
+  font-size: .86rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-decoration: none;
+  color: #fff;
+}
+.mds-mobile-bar a svg { flex-shrink: 0; }
+.mds-mobile-bar a:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
+
+.mds-mobile-bar .mmb-call {
+  background: transparent;
+  border-right: 1px solid rgba(255, 255, 255, .12);
+}
+.mds-mobile-bar .mmb-devis {
+  background: var(--accent, #E63E00);
+}
+
+@media (max-width: 900px) {
+  .mds-mobile-bar { display: flex; }
+  /* la barre ne doit jamais masquer la fin du pied de page */
+  body { padding-bottom: 56px; }
+}

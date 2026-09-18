@@ -23,6 +23,8 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:image" content="https://metallier-mds.fr/og-cover.jpg">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mds-mobile-bar.css">
+  <link rel="stylesheet" href="css/mds-lightbox.css">
 
   <script type="application/ld+json">
   {
@@ -66,7 +68,7 @@
       { "@type": "Question", "name": "Quelle est la largeur minimum d'un escalier ?",
         "acceptedAnswer": { "@type": "Answer", "text": "Pour un usage résidentiel, on recommande 80 cm minimum. En dessous (escalier secondaire, accès grenier), 60 cm est possible mais inconfortable. Pour un escalier principal confortable, 90 à 100 cm est l'idéal." } },
       { "@type": "Question", "name": "Quelle est la hauteur de marche maximale ?",
-        "acceptedAnswer": { "@type": "Answer", "text": "La norme NF P 21-211 fixe la hauteur de marche à 21 cm maximum en résidentiel (17 cm dans les ERP). Idéalement entre 16 et 19 cm pour le confort. La formule de Blondel (2H + G = 60 à 64 cm) reste la référence." } },
+        "acceptedAnswer": { "@type": "Answer", "text": "En escalier métallique, la conception relève de la NF EN 1090 et de l'Eurocode 3. La hauteur de marche retenue est de 21 cm maximum en résidentiel (17 cm dans les ERP). Idéalement entre 16 et 19 cm pour le confort. La formule de Blondel (2H + G = 60 à 64 cm) reste la référence." } },
       { "@type": "Question", "name": "Quel est le délai pour un escalier sur mesure ?",
         "acceptedAnswer": { "@type": "Answer", "text": "Comptez 6 à 10 semaines entre la validation du plan 3D et la pose. Un escalier hélicoïdal ou suspendu demande plus d'étude que un droit. Plan 3D sous 10 jours après le RDV technique." } },
       { "@type": "Question", "name": "Quel tarif moyen pour un escalier sur mesure ?",
@@ -322,7 +324,7 @@
       gap: 1rem;
     }
     .mds-gallery-item {
-      aspect-ratio: 4/3;
+      aspect-ratio: 3/4;
       border-radius: 4px;
       overflow: hidden;
       background: #1a1a1a;
@@ -509,7 +511,7 @@
         </div>
       </div>
       <div class="mds-product-hero-img animate-fadeup" style="--delay: 0.1s">
-        <img src="assets/photos-reelles/escalier-limon-bois.webp" alt="Escalier intérieur à limon central acier et marches en bois massif, réalisé sur mesure par MDS" loading="eager" decoding="async" fetchpriority="high" width="400" height="500">
+        <img src="assets/photos-reelles/escalier-suspendu-bois-acier.webp" alt="Escalier suspendu à limon central acier et marches en bois massif, garde-corps acier à câbles — réalisation MDS" loading="eager" decoding="async" fetchpriority="high" width="637" height="797">
       </div>
     </div>
   </section>
@@ -641,7 +643,7 @@
         </div>
 
         <div class="mds-gallery-item animate-fadeup">
-          <img src="assets/photos-chantiers/escalier-moderne-noir-limon-central.webp" alt="Escalier moderne acier noir avec limon central et marches métal noires, intérieur design" loading="lazy" decoding="async" width="400" height="300">
+          <img src="assets/photos-chantiers/escalier-moderne-noir-limon-central.webp" alt="Escalier acier noir à limon central et quart tournant, marches en tôle" loading="lazy" decoding="async" width="1072" height="1440">
           <div class="mds-gallery-cap">Limon central — Acier noir mat</div>
         </div>
 
@@ -688,8 +690,8 @@
             </svg>
           </summary>
           <div class="mds-faq-a">
-            La norme <strong>NF P 21-211</strong> fixe la hauteur de marche à <strong>21 cm maximum</strong> en résidentiel
-            (17 cm dans les ERP). Idéalement entre 16 et 19 cm pour le confort quotidien.
+            En escalier métallique, la conception relève de la <strong>NF EN 1090</strong> et de l'Eurocode 3. La hauteur de marche
+            retenue est de <strong>21 cm maximum</strong> en résidentiel (17 cm dans les ERP). Idéalement entre 16 et 19 cm pour le confort quotidien.
             La formule de Blondel reste la référence : <strong>2H + G = 60 à 64 cm</strong> (H = hauteur de marche, G = giron).
             Au-delà, l'escalier devient fatigant. Nous calculons systématiquement l'emmarchement optimal en phase de plan 3D.
           </div>
@@ -887,5 +889,15 @@
       document.querySelectorAll('.animate-fadeup').forEach(function(el){ io.observe(el); });
     })();
   </script>
+  <script src="js/mds-lightbox.js" defer></script>
+
+<!-- Barre d'action mobile -->
+<div class="mds-mobile-bar">
+  <a href="tel:+33643218201" class="mmb-call">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Appeler
+  </a>
+  <a href="devis.html" class="mmb-devis">Devis gratuit</a>
+</div>
 </body>
 </html>

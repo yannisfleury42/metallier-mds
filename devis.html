@@ -22,6 +22,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:image" content="https://metallier-mds.fr/og-cover.jpg">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mds-mobile-bar.css">
 
   <script type="application/ld+json">
   {
@@ -129,19 +130,18 @@
     .mds-form-rgpd a { color: var(--accent); text-decoration: none; }
     .mds-form-rgpd a:hover { text-decoration: underline; }
 
+    .mds-field-label {
+      display: block; margin-bottom: 0.5rem;
+      font-size: 0.88rem; font-weight: 600; color: var(--text-primary);
+    }
+
     /* UPLOAD ZONE */
     .mds-upload-zone {
       border: 2px dashed var(--border-hover, var(--border));
       border-radius: 6px;
       padding: 2rem 1.5rem;
       text-align: center;
-      cursor: pointer;
-      transition: border-color var(--t) var(--ease), background var(--t) var(--ease);
       background: rgba(255,255,255,0.015);
-    }
-    .mds-upload-zone:hover, .mds-upload-zone.is-dragover {
-      border-color: var(--accent);
-      background: rgba(230,62,0,0.05);
     }
     .mds-upload-zone svg { color: var(--accent); margin-bottom: 0.6rem; }
     .mds-upload-zone p { color: var(--text-secondary); font-size: 0.92rem; margin: 0.3rem 0; }
@@ -365,25 +365,23 @@
 
           <div class="form-group">
             <label for="f-description">Description du projet *</label>
-            <textarea id="f-description" name="description" rows="6" placeholder="Détaillez votre besoin : dimensions, matériaux souhaités, contraintes techniques, délai cible..." required aria-required="true"></textarea>
+            <textarea id="f-description" name="message" rows="6" placeholder="Détaillez votre besoin : dimensions, matériaux souhaités, contraintes techniques, délai cible..." required aria-required="true"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="f-files">Plans, croquis ou photos <span style="color:var(--text-muted);font-weight:400;">(facultatif)</span></label>
-            <label class="mds-upload-zone" id="mds-upload-zone" for="f-files">
+            <span class="mds-field-label">Plans, croquis ou photos <span style="color:var(--text-muted);font-weight:400;">(facultatif)</span></span>
+            <div class="mds-upload-zone">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="17 8 12 3 7 8"/>
-                <line x1="12" y1="3" x2="12" y2="15"/>
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
               </svg>
-              <p><strong>Glissez vos fichiers ici</strong> ou cliquez pour parcourir</p>
-              <p class="mds-upload-zone-hint">DWG, DXF, PDF, JPG, PNG, WEBP — jusqu'à 10 Mo au total</p>
-              <span class="mds-upload-btn">Sélectionner des fichiers</span>
-            </label>
-            <input class="mds-upload-input" type="file" id="f-files" name="files" multiple
-                   accept=".dwg,.dxf,.pdf,.jpg,.jpeg,.png,.webp">
-            <ul class="mds-files-list" id="mds-files-list" aria-live="polite"></ul>
-            <p class="mds-files-total" id="mds-files-total" hidden></p>
+              <p><strong>Envoyez vos plans par e-mail</strong></p>
+              <p class="mds-upload-zone-hint">
+                Envoyez-les à <a href="mailto:metallier.mds@gmail.com?subject=Plans%20pour%20ma%20demande%20de%20devis" style="color:var(--accent);text-decoration:none;font-weight:600;">metallier.mds@gmail.com</a>
+                en précisant votre nom — nous les rattacherons à votre demande.<br>
+                DWG, DXF, PDF, JPG, PNG. Un croquis coté ou de simples photos suffisent.
+              </p>
+            </div>
           </div>
 
           <div class="form-footer">
@@ -429,7 +427,7 @@
         <div class="mds-process-step animate-fadeup" style="--delay: 0.10s">
           <div class="mds-process-num">03</div>
           <h3>Devis détaillé</h3>
-          <p>Envoi du devis sous 48 à 72h, avec descriptif technique, matériaux, finitions et délai indicatif.</p>
+          <p>Envoi du devis sous 48h ouvrées, avec descriptif technique, matériaux, finitions et délai indicatif.</p>
         </div>
         <div class="mds-process-step animate-fadeup" style="--delay: 0.15s">
           <div class="mds-process-num">04</div>
@@ -542,105 +540,21 @@
 
     // UPLOAD + DEVIS SUBMIT
     (function(){
-      var MAX_TOTAL = 10 * 1024 * 1024; // 10 Mo
-      var ALLOWED = ['.dwg','.dxf','.pdf','.jpg','.jpeg','.png','.webp'];
-
       var form = document.getElementById('mds-devis-form');
-      var input = document.getElementById('f-files');
-      var dropZone = document.getElementById('mds-upload-zone');
-      var list = document.getElementById('mds-files-list');
-      var totalEl = document.getElementById('mds-files-total');
       var successMsg = document.querySelector('.form-success-msg');
-      if (!form || !input || !dropZone || !list) return;
+      if (!form) return;
 
       var API = 'https://metal-pliage-api.onrender.com';
       fetch(API + '/api/health', { method: 'GET', mode: 'cors' }).catch(function(){});
 
-      var selectedFiles = [];
-
-      function fmtSize(b){
-        if (b < 1024) return b + ' o';
-        if (b < 1024*1024) return (b/1024).toFixed(1) + ' Ko';
-        return (b/1024/1024).toFixed(2) + ' Mo';
-      }
-      function extOk(name){
-        var n = name.toLowerCase();
-        return ALLOWED.some(function(e){ return n.endsWith(e); });
-      }
-      function refresh(){
-        list.innerHTML = '';
-        var total = 0;
-        selectedFiles.forEach(function(f, i){
-          total += f.size;
-          var li = document.createElement('li');
-          var name = document.createElement('span');
-          name.className = 'mds-file-name';
-          name.textContent = f.name;
-          var size = document.createElement('span');
-          size.className = 'mds-file-size';
-          size.textContent = fmtSize(f.size);
-          var rm = document.createElement('button');
-          rm.type = 'button';
-          rm.className = 'mds-file-remove';
-          rm.setAttribute('aria-label', 'Retirer ' + f.name);
-          rm.textContent = '×';
-          rm.addEventListener('click', function(){
-            selectedFiles.splice(i, 1);
-            refresh();
-          });
-          li.appendChild(name);
-          li.appendChild(size);
-          li.appendChild(rm);
-          list.appendChild(li);
-        });
-        if (selectedFiles.length === 0) {
-          totalEl.hidden = true;
-          totalEl.textContent = '';
-          totalEl.classList.remove('is-error');
-        } else {
-          totalEl.hidden = false;
-          var over = total > MAX_TOTAL;
-          totalEl.textContent = 'Total : ' + fmtSize(total) + ' / 10 Mo' + (over ? ' — dépasse la limite' : '');
-          totalEl.classList.toggle('is-error', over);
-        }
-      }
-      function addFiles(files){
-        Array.from(files).forEach(function(f){
-          if (!extOk(f.name)) {
-            alert('Format non accepté : ' + f.name);
-            return;
-          }
-          if (selectedFiles.some(function(s){ return s.name === f.name && s.size === f.size; })) return;
-          selectedFiles.push(f);
-        });
-        refresh();
-      }
-
-      input.addEventListener('change', function(e){
-        addFiles(e.target.files);
-        input.value = ''; // permet de re-sélectionner le même fichier
-      });
-
-      ['dragenter','dragover'].forEach(function(ev){
-        dropZone.addEventListener(ev, function(e){
-          e.preventDefault(); e.stopPropagation();
-          dropZone.classList.add('is-dragover');
-        });
-      });
-      ['dragleave','drop'].forEach(function(ev){
-        dropZone.addEventListener(ev, function(e){
-          e.preventDefault(); e.stopPropagation();
-          dropZone.classList.remove('is-dragover');
-        });
-      });
-      dropZone.addEventListener('drop', function(e){
-        if (e.dataTransfer && e.dataTransfer.files) addFiles(e.dataTransfer.files);
-      });
-
       form.addEventListener('submit', function(e){
+        // L'envoi se fait en fetch : on empeche TOUJOURS la soumission native,
+        // sinon la page recharge et la requete en vol est annulee.
+        e.preventDefault();
+
         // Honeypot anti-spam
         var honey = form.querySelector('input[name="_honey"]');
-        if (honey && honey.value) { e.preventDefault(); return; }
+        if (honey && honey.value) { return; }
 
         // Validation champs
         var required = form.querySelectorAll('[required]');
@@ -649,15 +563,7 @@
           field.style.borderColor = '';
           if (!field.value.trim()) { field.style.borderColor = '#c0392b'; valid = false; }
         });
-        if (!valid) { e.preventDefault(); return; }
-
-        // Validation taille fichiers
-        var total = selectedFiles.reduce(function(a, f){ return a + f.size; }, 0);
-        if (total > MAX_TOTAL) {
-          e.preventDefault();
-          alert('Le total des fichiers dépasse 10 Mo. Retirez quelques pièces ou compressez-les.');
-          return;
-        }
+        if (!valid) { return; }
 
         var btn = form.querySelector('button[type="submit"]');
         var orig = btn.textContent;
@@ -666,9 +572,20 @@
         var data = {};
         new FormData(form).forEach(function(v, k){ data[k] = v; });
         delete data._honey;
-        data.files_note = selectedFiles.length > 0
-          ? selectedFiles.map(function(f){ return f.name + ' (' + (f.size/1024).toFixed(0) + ' Ko)'; }).join(', ')
-          : 'Aucun fichier joint';
+        delete data.files;
+
+        // On recopie le contexte DANS le message : l'API ne relaie pas
+        // forcement les champs annexes, et on ne veut rien perdre.
+        var ctx = [];
+        if (data.company)  ctx.push('Societe : ' + data.company);
+        if (data.phone)    ctx.push('Telephone : ' + data.phone);
+        if (data.activity) ctx.push('Profil : ' + data.activity);
+        if (data.project)  ctx.push('Type de projet : ' + data.project);
+        if (data.address)  ctx.push('Adresse du chantier : ' + data.address);
+        if (ctx.length) {
+          data.message = data.message + '\n\n--- Informations du formulaire ---\n' + ctx.join('\n');
+        }
+        data.message += '\n\n(Envoye depuis le formulaire de devis de metallier-mds.fr)';
 
         fetch(API + '/api/contact-mds', {
           method: 'POST', mode: 'cors',
@@ -690,5 +607,14 @@
       });
     })();
   </script>
+
+<!-- Barre d'action mobile -->
+<div class="mds-mobile-bar">
+  <a href="tel:+33643218201" class="mmb-call">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Appeler
+  </a>
+  <a href="devis.html" class="mmb-devis">Devis gratuit</a>
+</div>
 </body>
 </html>
